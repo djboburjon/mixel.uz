@@ -9,6 +9,7 @@ import { FaBalanceScaleLeft } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { LuShoppingCart } from "react-icons/lu";
 import { MdMenu } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -110,7 +111,8 @@ function Navbar() {
               <a href="#">Моноблоки</a>
             </li>
             <li className="link">
-              <a href="#">Телефоны, планшеты</a>
+              {/* <Link to={"/filter"}>Телефоны, планшеты</Link> */}
+              <a href="/filter"></a>
             </li>
             <li className="link">
               <a href="#">Ноутбуки</a>

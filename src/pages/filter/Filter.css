@@ -40,3 +40,59 @@
 .filter_right-head svg {
   font-size: 20px;
 }
+
+.views {
+  text-align: center;
+}
+
+.showMore {
+  margin-top: 20px;
+  margin-bottom: 25px;
+  padding: 8px 26px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: white;
+  border: 1px solid #ed3729;
+  color: #ed3729;
+}
+
+.showPages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.showPages p {
+  display: flex;
+  gap: 20px;
+}
+
+.popularity {
+  margin-bottom: 50px;
+}
+
+
+.popularities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.popularities button {
+  border: 1px solid gray;
+  padding: 6px 16px;
+  background-color: white;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.whereBuy {
+  margin-bottom: 80px;
+}
+
+.whereBuy p {
+  color: gray;
+}

@@ -1,0 +1,41 @@
+.card-info {
+  position: relative;
+}
+
+.card-info .sale {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ED3729;
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 50%;
+}
+
+.dates {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.dates div {
+  text-align: center;
+}
+
+.dates h3 {
+  border-right: 1px solid rgb(179, 179, 179);
+  margin-bottom: 10px;
+}
+
+.dates div:last-child h3 {
+  border: none;
+}
+
+.dates p {
+  color: gray;
+  font-size: 12px;
+}

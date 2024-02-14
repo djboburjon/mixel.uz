@@ -1,0 +1,178 @@
+.nav_top {
+  color: white;
+  background-color: #ED3729;
+  padding: 10px 0;
+}
+
+.nav_top .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav_top .nav_about {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav_about p {
+  margin-right: 30px;
+}
+
+.nav_about a {
+  color: white;
+}
+
+.nav_call {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav_call svg {
+  font-size: 22px;
+}
+
+.nav_call p {
+  font-size: 18px;
+}
+
+#language {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: white;
+}
+
+#language option {
+  background-color: black;
+  color: white;
+}
+
+.nav_bottom-top {
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search label {
+  border: 1px solid #ED3729;
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  overflow: hidden;
+  padding-left: 12px;
+}
+
+.search select {
+  background: transparent;
+  color: gray;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.search_inp {
+  border: none;
+  outline: none;
+  border-left: 1px solid gray;
+  padding: 0 12px;
+  margin-left: 12px;
+  font-size: 16px;
+  width: 26rem;
+}
+
+.search_voice {
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  color: grey;
+  cursor: pointer;
+}
+
+.search_btn {
+  padding: 12px;
+  background-color: #ED3729;
+  color: white;
+  outline: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.search_btn svg {
+  font-size: 18px;
+}
+
+.get_info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.get_info .login {
+  text-align: center;
+}
+
+.get_info svg {
+  font-size: 24px;
+}
+
+.info_icon {
+  position: relative;
+  text-align: center;
+}
+
+
+.info_icon span {
+  position: absolute;
+  top: -6px;
+  right: 6px;
+  background-color: #ED3729;
+  color: white;
+  border-radius: 50%;
+  padding: 4px;
+  font-size: 10px;
+}
+
+.nav_bottom-down {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav_bottom-down .category {
+  padding: 10px 40px;
+  border-radius: 6px;
+  background-color: #ED3729;
+  color: white;
+  display: flex;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.category svg {
+  font-size: 18px;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.links a {
+  color: black;
+  transition: all .3s ease;
+}
+
+.links a:hover {
+  color: #ED3729;
+}

@@ -5,3 +5,38 @@
   color: gray;
   padding: 40px 0 20px 0;
 }
+
+.filter_section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter_left {
+  width: 25%;
+}
+
+.filter_left h2 {
+  margin-bottom: 25px;
+}
+
+.filter_right {
+  width: 75%;
+}
+
+.filter_right-head {
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: gray;
+}
+
+.filter_right-head p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter_right-head svg {
+  font-size: 20px;
+}

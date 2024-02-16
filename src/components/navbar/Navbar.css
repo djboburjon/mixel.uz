@@ -57,6 +57,10 @@
   justify-content: space-between;
 }
 
+.logo {
+  cursor: pointer;
+}
+
 .search label {
   border: 1px solid #ED3729;
   display: flex;

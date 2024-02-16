@@ -4,6 +4,7 @@ import { FaTelegramPlane } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -11,7 +12,7 @@ function Footer() {
       <div className="container">
         <div className="footer_left">
           <div className="logo">
-            <img src="./imgs/logoFooter.png" alt="Logotip" />
+            <Link to={"/"}><img src="./imgs/logoFooter.png" alt="Logotip" /></Link>
           </div>
           <p className="workingTime">
             График работы колл-центра <br />

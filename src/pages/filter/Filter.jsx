@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Filter.css";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -14,7 +14,7 @@ import { BsFilterLeft } from "react-icons/bs";
 import { PiSquaresFour } from "react-icons/pi";
 import { TiEqualsOutline } from "react-icons/ti";
 import CheaperCards from "../../components/cheaperCards/CheaperCards";
-import { FaAngleDown } from "react-icons/fa";
+import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 
 
 function valuetext(value) {
@@ -27,6 +27,8 @@ function Filter() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const [disableText, setDisableText] = useState(true)
 
   return (
     <div className="filter">
@@ -266,7 +268,7 @@ function Filter() {
             <CheaperCards />
           </div>
 
-          <div className="whereBuy">
+          <div className={disableText ? "whereBuy disable" : "whereBuy"}>
             <div className="content_head">
               <h2>Где купить надежный смартфон в Ташкенте?</h2>
             </div>
@@ -277,7 +279,11 @@ function Filter() {
               quisquam itaque atque sint at libero, esse alias eaque ex
               dignissimos maiores nam accusantium impedit? Dolores eum numquam
               placeat, cum eveniet tempore quas blanditiis inventore!
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia corrupti enim voluptates repudiandae, necessitatibus eaque quos impedit sunt provident accusamus commodi fugit ut! Odio animi doloremque nam nesciunt quis velit, eius est fuga at vero a quam earum rem fugiat sed neque minus? Quae voluptatibus saepe dolores architecto, enim rem corrupti autem perspiciatis alias harum provident recusandae ad ratione nisi eaque pariatur nihil molestiae quasi dolor placeat nulla quam exercitationem nam quia. Quasi, fuga. Ab quo perferendis ad, autem possimus aut dolorem pariatur labore delectus voluptatem iusto enim consectetur non culpa facere eveniet sint. Saepe veniam blanditiis, commodi ut recusandae odit, praesentium dolorum rerum, at sequi dolores voluptates? Laboriosam, fugit. Consequatur commodi deleniti ad labore dolorem, possimus reiciendis earum dicta dolores molestiae iure ut nulla nobis cupiditate eveniet, similique vero, error dolore exercitationem animi voluptas! Iste ipsam, minus cumque fugiat quibusdam dolorum commodi in repellat autem maxime adipisci, alias cupiditate quos voluptatum officia ducimus illum eligendi, perferendis recusandae deserunt ad nemo eaque! Sit tenetur corrupti sunt perferendis itaque, aut voluptatum iusto quo asperiores porro nisi. Harum ipsa dolorum provident recusandae placeat, debitis dignissimos voluptate? Libero quia suscipit sapiente, eaque ratione totam, reiciendis unde exercitationem doloremque fugit provident ipsum officiis nam!
             </p>
+            <button onClick={() => {
+              setDisableText(!disableText)
+            }}>Показать больше {disableText ? <FaAngleDown /> : <FaAngleUp />}</button>
           </div>
         </div>
       </div>

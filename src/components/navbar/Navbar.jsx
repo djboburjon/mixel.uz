@@ -111,8 +111,7 @@ function Navbar() {
               <a href="#">Моноблоки</a>
             </li>
             <li className="link">
-              {/* <Link to={"/filter"}>Телефоны, планшеты</Link> */}
-              <a href="/filter"></a>
+              <Link to={"/filter"}>Телефоны, планшеты</Link>
             </li>
             <li className="link">
               <a href="#">Ноутбуки</a>

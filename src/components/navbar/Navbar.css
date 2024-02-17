@@ -180,3 +180,7 @@
 .links a:hover {
   color: #ED3729;
 }
+
+.links .link a.active {
+  color: #ED3729;
+}

@@ -39,6 +39,21 @@ main {
   margin-bottom: 40px;
 }
 
+.cards.filter_wide {
+  display: block;
+}
+
+.cards.filter_wide .card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cards.filter_wide .card hr {
+  display: none;
+}
+
 .card {
   width: 240px;
   border: 1px solid rgb(179, 179, 179);

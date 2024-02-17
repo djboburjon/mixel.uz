@@ -29,6 +29,7 @@ function Filter() {
   };
 
   const [disableText, setDisableText] = useState(true)
+  const [filter_wide, setFilter_wide] = useState(false)
 
   return (
     <div className="filter">
@@ -217,15 +218,19 @@ function Filter() {
               </span>
             </p>
             <p>
-              <span>
+              <span onClick={() => {
+                setFilter_wide(false)
+              }} style={!filter_wide ? {color: "#ed3729"} : {}}>
                 <PiSquaresFour />{" "}
               </span>
-              <span>
+              <span onClick={() => {
+                setFilter_wide(true)
+              }} style={filter_wide ? {color: "#ed3729"} : {}}>
                 <TiEqualsOutline />{" "}
               </span>
             </p>
           </div>
-          <CheaperCards />
+          <CheaperCards filter_wide={filter_wide} />
           <div className="views">
             <button className="showMore">Показать еще</button>
             <div className="showPages">

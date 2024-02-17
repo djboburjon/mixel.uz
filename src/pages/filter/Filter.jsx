@@ -220,7 +220,7 @@ function Filter() {
             <p>
               <span onClick={() => {
                 setFilter_wide(false)
-              }} style={!filter_wide ? {color: "#ed3729"} : {}}>
+              }} style={!filter_wide ? {color: "#ED3729"} : {}}>
                 <PiSquaresFour />{" "}
               </span>
               <span onClick={() => {

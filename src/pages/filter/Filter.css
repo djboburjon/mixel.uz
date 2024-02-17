@@ -96,6 +96,10 @@
   gap: 10px;
 }
 
+.filter_right-head p span {
+  cursor: pointer;
+}
+
 .filter_right-head svg {
   font-size: 20px;
 }

@@ -21,7 +21,10 @@ function valuetext(value) {
 }
 
 function Filter() {
-  const [value, setValue] = React.useState([300, 103300000]);
+  const [value, setValue] = useState([300, 103300000]);
+  const [brand, setBrand] = useState([]);
+  const [battery, setBattery] = useState([]);
+  const [country, setCountry] = useState([]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -233,6 +236,22 @@ function Filter() {
     },
   ]);
 
+  const [product, setProduct] = useState(data);
+
+  const filtered = () => {
+    console.log(value, brand, battery, country);
+    const newData = data.filter((item) => {
+      return (
+        item.price > value[0] &&
+        item.price < value[1] &&
+        brand.includes(item.brand) &&
+        battery.includes(item.battery) &&
+        country.includes(item.country)
+      );
+    });
+    setProduct(newData);
+  };
+
   return (
     <div className="filter">
       <div className="inWay">
@@ -307,14 +326,46 @@ function Filter() {
               >
                 Бренд
               </AccordionSummary>
-              <AccordionDetails>
-                <FormControlLabel control={<Checkbox />} label="LG" />
+              <AccordionDetails
+                onChange={(e) => {
+                  setBrand([...brand, e.target.value]);
+                }}
+              >
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="LG"
+                  value={"LG"}
+                />
                 <span>(30)</span> <br />
-                <FormControlLabel control={<Checkbox />} label="Samsung" />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Hp"
+                  value={"Hp"}
+                />
                 <span>(30)</span> <br />
-                <FormControlLabel control={<Checkbox />} label="Artel" />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Artel"
+                  value={"Artel"}
+                />
+                <span>(30)</span> <br />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Avalon"
+                  value={"Avalon"}
+                />
+                <span>(30)</span> <br />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Xiaomi"
+                  value={"Xiaomi"}
+                />
                 <span>(7)</span> <br />
-                <FormControlLabel control={<Checkbox />} label="Huawei" />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Apple"
+                  value={"Apple"}
+                />
                 <span>(30)</span>
               </AccordionDetails>
             </Accordion>
@@ -324,17 +375,36 @@ function Filter() {
                 expandIcon={<FaAngleDown />}
                 aria-controls="panel2-content"
                 className="panel-header"
+                
               >
                 Емкость аккумулятора
               </AccordionSummary>
-              <AccordionDetails>
-                <FormControlLabel control={<Checkbox />} label="1821 мА⋅ч" />
+              <AccordionDetails onChange={(e) => {
+                  setBattery([...battery, e.target.value]);
+                }}>
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="1821 мА⋅ч"
+                  value={1821}
+                />
                 <br />
-                <FormControlLabel control={<Checkbox />} label="3000 мА⋅ч" />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="3000 мА⋅ч"
+                  value={3000}
+                />
                 <br />
-                <FormControlLabel control={<Checkbox />} label="4500 мА⋅ч" />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="4500 мА⋅ч"
+                  value={4500}
+                />
                 <br />
-                <FormControlLabel control={<Checkbox />} label="5000 мА⋅ч" />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="5000 мА⋅ч"
+                  value={5000}
+                />
               </AccordionDetails>
             </Accordion>
 
@@ -343,17 +413,36 @@ function Filter() {
                 expandIcon={<FaAngleDown />}
                 aria-controls="panel2-content"
                 className="panel-header"
+                
               >
                 Страна производитель
               </AccordionSummary>
-              <AccordionDetails>
-                <FormControlLabel control={<Checkbox />} label="Вьетнам" />
+              <AccordionDetails onChange={(e) => {
+                  setCountry([...country, e.target.value]);
+                }}>
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Вьетнам"
+                  value="vetnam"
+                />
                 <br />
-                <FormControlLabel control={<Checkbox />} label="Китай" />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Китай"
+                  value="xitoy"
+                />
                 <br />
-                <FormControlLabel control={<Checkbox />} label="Artel" />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="USA"
+                  value="USA"
+                />
                 <br />
-                <FormControlLabel control={<Checkbox />} label="Huawei" />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="uzbekistan"
+                  value="uzbekistan"
+                />
               </AccordionDetails>
             </Accordion>
 
@@ -407,7 +496,9 @@ function Filter() {
               </AccordionSummary>
               <AccordionDetails></AccordionDetails>
             </Accordion>
-            <button className="filter_main-btn">Показать</button>
+            <button onClick={filtered} className="filter_main-btn">
+              Показать
+            </button>
           </div>
         </div>
         <div className="filter_right">
@@ -439,7 +530,7 @@ function Filter() {
               </span>
             </p>
           </div>
-          <CheaperCards filter_wide={filter_wide} />
+          <CheaperCards filter_wide={filter_wide} product={product} />
           <div className="views">
             <button className="showMore">Показать еще</button>
             <div className="showPages">

@@ -239,7 +239,6 @@ function Filter() {
   const [product, setProduct] = useState(data);
 
   const filtered = () => {
-    console.log(value, brand, battery, country);
     const newData = data.filter((item) => {
       return (
         item.price > value[0] &&

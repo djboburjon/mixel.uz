@@ -1,0 +1,124 @@
+.info_main .container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.info_main-left {
+  width: 380px;
+}
+
+.info_main-left > img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.ex-imgs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ex-imgs img {
+  width: 60px;
+}
+
+.middle_head h1 {
+  margin-bottom: 30px;
+}
+
+.middle_head .price {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.price span {
+  color: gray;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.price span:hover {
+  color: #ED3729;
+}
+
+.price span:nth-child(1) {
+  margin-left: 5px;
+}
+.price span:nth-child(2) {
+  margin-left: 100px;
+}
+
+.comment {
+  margin-bottom: 36px;
+  display: flex;
+  align-items: center;
+  color: gray;
+}
+
+.buy_btns {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.buy_btns button {
+  padding: 12px 50px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  margin-bottom: 50px;
+}
+
+.buy_btn1 {
+  background-color: #ED3729;
+  width: 140px;
+}
+.buy_btn2 {
+  background-color: black;
+  width: 260px;
+}
+
+.specific-name {
+  padding: 20px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.specific-name p:first-child {
+  color: gray;
+}
+
+.specific-name p:last-child {
+  width: 50%;
+  line-height: 26px;
+}
+
+.parameters {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.parameters h2 {
+ margin-bottom: 20px;
+}
+
+.paramInfo {
+  padding: 18px 10px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.paramInfo:hover {
+  background-color: #F2F2F2;
+}
+
+.paramInfo p:first-child {
+  color: gray;
+}
+
+.paramInfo p:last-child {
+  width: 50%;
+}

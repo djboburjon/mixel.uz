@@ -10,6 +10,8 @@ import { LuRefreshCw } from "react-icons/lu";
 import { TfiHeadphoneAlt } from "react-icons/tfi";
 import { FaShippingFast } from "react-icons/fa";
 import { MdOutlinePayments } from "react-icons/md";
+import CheaperCards from "../../components/cheaperCards/CheaperCards";
+import Recommended from "../../components/recommended/Recommended";
 
 function InfoCard() {
   // const {id} = useParams()
@@ -56,25 +58,27 @@ function InfoCard() {
                   <FaScaleBalanced />
                 </span>
               </div>
-              <p>
+              <p className="comment">
                 <span>
                   <FaRegComments />
                 </span>{" "}
                 VIP скидки для VIP клиентов
               </p>
               <div className="buy_btns">
-                <div className="buy_btn1">Купить сейчас</div>
-                <div className="buy_btn2">Купить в рассрочку сейчас</div>
+                <button className="buy_btn1">Купить сейчас</button>
+                <button className="buy_btn2">Купить в рассрочку сейчас</button>
               </div>
+              <hr />
+              <div className="specific-name">
+                <p>Название для договора</p>
+                <p>
+                  MacBook Pro 13 MXK32ZP/A Space Gray Full HD 1920x1080 IPS /
+                  Core™ i7-1165G7 / 8GB RAM / 256GB SSD
+                </p>
+              </div>
+              <hr />
             </div>
-            <div className="specific-name">
-              <p>Название для договора</p>
-              <p>
-                MacBook Pro 13 MXK32ZP/A Space Gray Full HD 1920x1080 IPS /
-                Core™ i7-1165G7 / 8GB RAM / 256GB SSD
-              </p>
-            </div>
-            <div className="Parameters">
+            <div className="parameters">
               <h2>Технические параметры</h2>
               <div className="paramInfo">
                 <p>Название</p>
@@ -261,6 +265,15 @@ function InfoCard() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="info_main-card">
+        <div className="container">
+          <div className="content_head">
+            <h2>Товары дешевле:</h2>
+            <p>Посмотреть все →</p>
+          </div>
+          <Recommended />
         </div>
       </div>
     </div>

@@ -6,6 +6,7 @@ import CheaperCards from "../../components/cheaperCards/CheaperCards";
 import Recommended from "../../components/recommended/Recommended";
 import Brands from "../../components/brands/Brands";
 import Banner from "../../components/banner/Banner";
+import Advertisement from "../../components/advertisement/Advertisement";
 
 function Home() {
   return (
@@ -37,6 +38,11 @@ function Home() {
           </div>
           <FamousCategory />
         </div>
+      </section>
+
+      {/* Advertisement */}
+      <section className="advertisement">
+        <Advertisement/>
       </section>
 
       {/* Cheaper Products */}

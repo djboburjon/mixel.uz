@@ -244,18 +244,16 @@ function InfoCard() {
               </div>
             </div>
             <div className="right_card">
-              <p>
+              <div className="right_card-content">
                 <FaShippingFast />
-              </p>
-              <div className="right_card-info">
-                <h3>Доставка:</h3>
-                <p>Бесплатно</p>
+                
+                <p><h3>Доставка:</h3>Бесплатно</p>
               </div>
-              <p>
+              <div className="right_card-content">
                 <MdOutlinePayments />
-              </p>
-              <div className="right_card-info">
                 <h3>Cпособ оплаты:</h3>
+              </div>
+              <div className="right_card-info">
                 <ul>
                   <li>
                     <p>Наличными (При Доставке)</p>

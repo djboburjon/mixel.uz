@@ -122,3 +122,56 @@
 .paramInfo p:last-child {
   width: 50%;
 }
+
+.right_card {
+  padding: 30px 40px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  background-color: #F2F2F2;
+  border-radius: 5px;
+  border: 1px solid #f7f7f7;
+  margin-bottom: 10px;
+}
+
+.right_card-info {
+  width: 260px;
+  text-align: left;
+}
+
+.right_card-info h3,
+.right_card-info p {
+  margin-bottom: 10px;
+}
+
+.right_card-info a {
+  color: blue;
+}
+
+.right_card:last-child {
+  display: block;
+}
+
+.right_card-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.right_card-content:first-child {
+  margin-bottom: 20px;
+}
+
+.right_card-content p {
+  display: flex;
+  align-items: center;
+}
+
+.right_card-info ul {
+  padding-top: 10px;
+  padding-left: 50px;
+}
+
+.right_card-info ul li {
+  list-style-type: disc;
+}

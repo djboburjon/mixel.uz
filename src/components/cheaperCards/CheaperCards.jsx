@@ -6,37 +6,37 @@ import { PiShoppingCartSimpleFill } from "react-icons/pi";
 import { Link, NavLink, useParams } from "react-router-dom";
 
 function CheaperCards({ filter_wide, product }) {
-
-  
   return (
     <div className={filter_wide ? "cards filter_wide" : "cards"}>
       {product?.map((item) => {
         return (
-          <Link to={`/filter/${item.id}`}>
-            <div className="card">
-              <div className="card-info">
+          <div className="card">
+            <div className="card-info">
+              <Link to={`/filter/${item.id}`}>
                 <img src={item.img} alt="" />
-              </div>{" "}
-              <div>
-                <div className="last-price">{Math.floor((item.price / 12) * 1.3)} сум/мес</div>
-                <p>{item.price} сум</p>
-
-                <h2>{item.name}</h2>
+              </Link>
+            </div>{" "}
+            <div>
+              <div className="last-price">
+                {Math.floor((item.price / 12) * 1.3)} сум/мес
               </div>
-              <hr />
-              <div className="additions">
-                <div className="shopping">
-                  <PiShoppingCartSimpleFill />
-                </div>
-                <div className="favorits">
-                  <FaHeart />
-                </div>
-                <div className="comparisons">
-                  <FaScaleBalanced />
-                </div>
+              <p>{item.price} сум</p>
+
+              <h2>{item.name}</h2>
+            </div>
+            <hr />
+            <div className="additions">
+              <div className="shopping">
+                <PiShoppingCartSimpleFill />
+              </div>
+              <div className="favorits">
+                <FaHeart />
+              </div>
+              <div className="comparisons">
+                <FaScaleBalanced />
               </div>
             </div>
-          </Link>
+          </div>
         );
       })}
     </div>

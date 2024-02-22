@@ -8,17 +8,19 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 // import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Pagination, Navigation } from 'swiper/modules';
 
 function FamousCategory() {
   return (
     <Swiper
       slidesPerView={4}
       spaceBetween={30}
+      loop={true}
       pagination={{
         clickable: true,
       }}
-      modules={[Pagination]}
+      navigation={true}
+      modules={[Pagination, Navigation]}
       className="mySwiper"
     >
       <SwiperSlide className="famous">

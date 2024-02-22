@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./InfoCard.css";
 import { useParams } from "react-router-dom";
 import { IoIosInformationCircleOutline } from "react-icons/io";
@@ -18,6 +18,7 @@ function InfoCard() {
   // const infoProduct = product.filter((item) => {
   //   return item.id == id
   // })
+  const [mainImg, setMainImg] = useState("../imgs/notebook.png")
 
   return (
     <div onLoad={() => {
@@ -37,12 +38,20 @@ function InfoCard() {
       <div className="info_main">
         <div className="container">
           <div className="info_main-left">
-            <img src="../imgs/notebook.png" alt="Info Main Image" />
+            <img src={mainImg} alt="Info Main Image" />
             <div className="ex-imgs">
-              <img src="../imgs/notebook1.png" alt="Info Main Image" />
-              <img src="../imgs/notebook2.png" alt="Info Main Image" />
-              <img src="../imgs/notebook3.png" alt="Info Main Image" />
-              <img src="../imgs/notebook4.png" alt="Info Main Image" />
+              <img onClick={() => {
+                setMainImg("../imgs/notebook1.png")
+              }} src="../imgs/notebook1.png" alt="Info Main Image" />
+              <img onClick={() => {
+                setMainImg("../imgs/notebook2.png")
+              }} src="../imgs/notebook2.png" alt="Info Main Image" />
+              <img onClick={() => {
+                setMainImg("../imgs/notebook3.png")
+              }} src="../imgs/notebook3.png" alt="Info Main Image" />
+              <img onClick={() => {
+                setMainImg("../imgs/notebook4.png")
+              }} src="../imgs/notebook4.png" alt="Info Main Image" />
             </div>
           </div>
           <div className="info_main-middle">

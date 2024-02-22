@@ -20,7 +20,12 @@ function InfoCard() {
   // })
 
   return (
-    <div>
+    <div onLoad={() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      })
+    }}>
       <div className="inWay">
         <div className="container">
           <p>

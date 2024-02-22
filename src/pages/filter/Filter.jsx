@@ -252,7 +252,12 @@ function Filter() {
   };
 
   return (
-    <div className="filter">
+    <div className="filter" onLoad={() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      })
+    }}>
       <div className="inWay">
         <div className="container">
           <p>

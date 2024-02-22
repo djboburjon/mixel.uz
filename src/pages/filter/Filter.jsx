@@ -47,7 +47,7 @@ function Filter() {
       owner: null,
       brand: "Artel",
       battery: null,
-      country: "Uzbekistan",
+      country: "uzbekistan",
       subCategory: {
         id: 1,
         name: "Home and garden",
@@ -72,7 +72,7 @@ function Filter() {
       owner: null,
       brand: "Avalon",
       battery: null,
-      country: "Uzbekistan",
+      country: "uzbekistan",
       subCategory: {
         id: 1,
         name: "Home and garden",
@@ -172,7 +172,7 @@ function Filter() {
       owner: null,
       brand: "Artel",
       battery: null,
-      country: "Uzbekistan",
+      country: "uzbekistan",
       subCategory: {
         id: 1,
         name: "Home and garden",
@@ -196,8 +196,8 @@ function Filter() {
       deliver: true,
       owner: null,
       brand: "Xiaomi",
-      battery: null,
-      country: "Xitoy",
+      battery: "1821",
+      country: "xitoy",
       subCategory: {
         id: 1,
         name: "Home and garden",
@@ -240,24 +240,32 @@ function Filter() {
 
   const filtered = () => {
     const newData = data.filter((item) => {
-      return (
-        item.price > value[0] &&
-        item.price < value[1] &&
-        brand.includes(item.brand) &&
-        battery.includes(item.battery) &&
-        country.includes(item.country)
-      );
+      return brand.length
+        ? brand.includes(item.brand)
+        : item && battery.length
+        ? battery.includes(item.battery)
+        : item && country.length
+        ? country.includes(item.country)
+        : item && item.price > value[0] && item.price < value[1];
     });
     setProduct(newData);
+
+    window.scrollTo({
+      top: 50,
+      behavior: "smooth",
+    });
   };
 
   return (
-    <div className="filter" onLoad={() => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      })
-    }}>
+    <div
+      className="filter"
+      onLoad={() => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }}
+    >
       <div className="inWay">
         <div className="container">
           <p>
@@ -379,13 +387,14 @@ function Filter() {
                 expandIcon={<FaAngleDown />}
                 aria-controls="panel2-content"
                 className="panel-header"
-                
               >
                 Емкость аккумулятора
               </AccordionSummary>
-              <AccordionDetails onChange={(e) => {
+              <AccordionDetails
+                onChange={(e) => {
                   setBattery([...battery, e.target.value]);
-                }}>
+                }}
+              >
                 <FormControlLabel
                   control={<Checkbox />}
                   label="1821 мА⋅ч"
@@ -417,13 +426,14 @@ function Filter() {
                 expandIcon={<FaAngleDown />}
                 aria-controls="panel2-content"
                 className="panel-header"
-                
               >
                 Страна производитель
               </AccordionSummary>
-              <AccordionDetails onChange={(e) => {
+              <AccordionDetails
+                onChange={(e) => {
                   setCountry([...country, e.target.value]);
-                }}>
+                }}
+              >
                 <FormControlLabel
                   control={<Checkbox />}
                   label="Вьетнам"

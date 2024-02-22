@@ -1,0 +1,60 @@
+.advertisement {
+  background-color: #F7F7F7;
+  padding: 30px;
+  margin-bottom: 50px;
+}
+
+.swiper-slide {
+  background: transparent;
+}
+
+.advert_layer .container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.adver_text {
+  width: 400px;
+  text-align: left;
+}
+
+.adver_text h1 {
+  margin-bottom: 18px;
+  font-size: 40px;
+}
+
+.adver_text p {
+ color: #909090;
+ font-size: 16px;
+}
+
+.advert_layer img {
+  width: 250px;
+}
+
+.adver_price h1 {
+  font-size: 42px;
+  margin-bottom: 18px;
+  color: #ED3729;
+}
+
+.adver_price p {
+  font-size: 20px;
+  color: #909090;
+  margin-bottom: 20px;
+}
+
+.adver_price button {
+  display: inline-block;
+  padding: 12px 50px;
+  border: 1px solid #ED3729;
+  color: #ED3729;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+.swiper-pagination {
+  display: none;
+}

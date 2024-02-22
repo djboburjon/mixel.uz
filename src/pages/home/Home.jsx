@@ -41,7 +41,7 @@ function Home() {
       </section>
 
       {/* Advertisement */}
-      <section className="advertisement">
+      <section>
         <Advertisement/>
       </section>
 

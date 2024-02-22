@@ -105,25 +105,25 @@ function Navbar() {
           </button>
           <ul className="links">
             <li className="link">
-              <a href="#">Наши магазины</a>
+              <NavLink to={"/"}>Наши магазины</NavLink>
             </li>
             <li className="link">
-              <a href="#">Моноблоки</a>
+              <NavLink to={"/monoblocks"}>Моноблоки</NavLink>
             </li>
             <li className="link">
               <NavLink to={"/filter"}>Телефоны, планшеты</NavLink>
             </li>
             <li className="link">
-              <a href="#">Ноутбуки</a>
+              <NavLink to={"/notebooks"}>Ноутбуки</NavLink>
             </li>
             <li className="link">
-              <a href="#">Комплектующие</a>
+              <NavLink to={"/accessories"}>Комплектующие</NavLink>
             </li>
             <li className="link">
-              <a href="#">Сетевое оборудование</a>
+              <NavLink to={"/networks"}>Сетевое оборудование</NavLink>
             </li>
             <li className="link">
-              <a href="#">Оргтехника</a>
+              <NavLink to={"/equipment"}>Оргтехника</NavLink>
             </li>
           </ul>
         </div>

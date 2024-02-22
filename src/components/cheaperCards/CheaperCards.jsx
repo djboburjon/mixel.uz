@@ -10,7 +10,7 @@ function CheaperCards({ filter_wide, product }) {
     <div className={filter_wide ? "cards filter_wide" : "cards"}>
       {product?.map((item) => {
         return (
-          <div className="card">
+          <div className="card" key={item.id}>
             <div className="card-info">
               <Link to={`/filter/${item.id}`}>
                 <img src={item.img} alt="" />

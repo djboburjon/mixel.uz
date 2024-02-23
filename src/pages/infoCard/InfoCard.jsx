@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./InfoCard.css";
 import { useParams } from "react-router-dom";
 import { IoIosInformationCircleOutline } from "react-icons/io";
@@ -41,7 +41,11 @@ function InfoCard({ data }) {
     created_at,
     updated_at,
   } = product[0];
-  const [mainImg, setMainImg] = useState(img);
+  const [mainImg, setMainImg] = useState(null);
+  
+  useEffect(() => {
+    setMainImg(img)
+  }, [id])
 
   return (
     <>

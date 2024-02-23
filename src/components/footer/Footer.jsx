@@ -20,7 +20,7 @@ function Footer() {
           </p>
           <p className='callCenter'>
             Колл-центр: <br />
-            + 998 (71) 205-93-93
+            + 998 (91) 106-66-03
           </p>
 
           <div className="social_media">

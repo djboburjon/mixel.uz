@@ -44,7 +44,7 @@ function Navbar() {
       <div className="nav_bottom">
         <div className="nav_bottom-top container">
           <div className="logo">
-            <Link to={"/"}><img src="./imgs/logo.png" alt="Logotip" /></Link>
+            <Link to={"/"}><img src="/imgs/logo.png" alt="Logotip" /></Link>
           </div>
           <form className="search">
             <label>

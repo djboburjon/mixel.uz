@@ -12,7 +12,7 @@ function Footer() {
       <div className="container">
         <div className="footer_left">
           <div className="logo">
-            <Link to={"/"}><img src="./imgs/logoFooter.png" alt="Logotip" /></Link>
+            <Link to={"/"}><img src="/imgs/logoFooter.png" alt="Logotip" /></Link>
           </div>
           <p className="workingTime">
             График работы колл-центра <br />

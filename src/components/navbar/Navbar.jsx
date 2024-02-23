@@ -108,22 +108,22 @@ function Navbar() {
               <NavLink to={"/"}>Наши магазины</NavLink>
             </li>
             <li className="link">
-              <NavLink to={"/monoblocks"}>Моноблоки</NavLink>
+              <NavLink to={"/products/monoblocks"}>Моноблоки</NavLink>
             </li>
             <li className="link">
-              <NavLink to={"/filter"}>Телефоны, планшеты</NavLink>
+              <NavLink to={"/products/smartscreens"}>Телефоны, планшеты</NavLink>
             </li>
             <li className="link">
-              <NavLink to={"/notebooks"}>Ноутбуки</NavLink>
+              <NavLink to={"/products/laptops"}>Ноутбуки</NavLink>
             </li>
             <li className="link">
-              <NavLink to={"/accessories"}>Комплектующие</NavLink>
+              <NavLink to={"/products/accessories"}>Комплектующие</NavLink>
             </li>
             <li className="link">
-              <NavLink to={"/networks"}>Сетевое оборудование</NavLink>
+              <NavLink to={"/products/networks"}>Сетевое оборудование</NavLink>
             </li>
             <li className="link">
-              <NavLink to={"/equipment"}>Оргтехника</NavLink>
+              <NavLink to={"/products/equipments"}>Оргтехника</NavLink>
             </li>
           </ul>
         </div>

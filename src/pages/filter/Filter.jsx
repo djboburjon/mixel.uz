@@ -340,7 +340,15 @@ function Filter() {
               </AccordionSummary>
               <AccordionDetails
                 onChange={(e) => {
-                  setBrand([...brand, e.target.value]);
+                  if (!brand.includes(e.target.value)) {
+                    brand.push(e.target.value);
+                    setBrand(brand);
+                  } else {
+                    let newBrand = brand.filter((item) => {
+                      return item != e.target.value;
+                    });
+                    setBrand(newBrand);
+                  }
                 }}
               >
                 <FormControlLabel
@@ -392,7 +400,15 @@ function Filter() {
               </AccordionSummary>
               <AccordionDetails
                 onChange={(e) => {
-                  setBattery([...battery, e.target.value]);
+                  if (!battery.includes(e.target.value)) {
+                    battery.push(e.target.value);
+                    setBattery(battery);
+                  } else {
+                    let newBattery = battery.filter((item) => {
+                      return item != e.target.value;
+                    });
+                    setBattery(newBattery);
+                  }
                 }}
               >
                 <FormControlLabel
@@ -431,7 +447,15 @@ function Filter() {
               </AccordionSummary>
               <AccordionDetails
                 onChange={(e) => {
-                  setCountry([...country, e.target.value]);
+                  if (!country.includes(e.target.value)) {
+                    country.push(e.target.value);
+                    setCountry(country);
+                  } else {
+                    let newCountry = country.filter((item) => {
+                      return item != e.target.value;
+                    });
+                    setCountry(newCountry);
+                  }
                 }}
               >
                 <FormControlLabel

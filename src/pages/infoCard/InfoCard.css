@@ -8,8 +8,15 @@
   width: 380px;
 }
 
-.info_main-left > img {
-  width: 100%;
+.mainImg {
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainImg img {
+  width: 300px;
   margin-bottom: 10px;
 }
 
@@ -21,6 +28,12 @@
 
 .ex-imgs img {
   width: 60px;
+  height: 60px;
+  border: 1px solid #F2F2F2;
+  border-radius: 6px;
+  padding: 5px;
+  object-fit: contain;
+  cursor: pointer;
 }
 
 .middle_head h1 {

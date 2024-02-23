@@ -15,16 +15,19 @@ import { PiSquaresFour } from "react-icons/pi";
 import { TiEqualsOutline } from "react-icons/ti";
 import CheaperCards from "../../components/cheaperCards/CheaperCards";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
+import { useParams } from "react-router-dom";
 
 function valuetext(value) {
   return `${value}°C`;
 }
 
-function Filter() {
+function Filter({data}) {
   const [value, setValue] = useState([300, 103300000]);
   const [brand, setBrand] = useState([]);
   const [battery, setBattery] = useState([]);
   const [country, setCountry] = useState([]);
+
+  const {type} = useParams()
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -32,209 +35,6 @@ function Filter() {
 
   const [disableText, setDisableText] = useState(true);
   const [filter_wide, setFilter_wide] = useState(false);
-
-  const [data, setData] = useState([
-    {
-      id: 0,
-      img: "https://assets.asaxiy.uz/product/main_image/desktop//659911dd9cd6e.jpg",
-      name: "Kir moshina",
-      description: "asdasd",
-      price: 3000000,
-      amount: 24,
-      discount: 20,
-      guaranty: 2,
-      deliver: true,
-      owner: null,
-      brand: "Artel",
-      battery: null,
-      country: "uzbekistan",
-      subCategory: {
-        id: 1,
-        name: "Home and garden",
-        category: {
-          id: 1,
-          name: "Maishiy texnika",
-        },
-      },
-      created_at: "2024-02-14T12:15:57.889009Z",
-      updated_at: "2024-02-14T13:09:09.009448Z",
-    },
-    {
-      id: 1,
-      img: "https://assets.asaxiy.uz/product/items/desktop/a10390358cde813f75ac203ed7b164ed2020070912130632748YMGMS6rNUL.jpg.webp",
-      name: "Konditsioner",
-      description: "asdasd",
-      price: 2000000,
-      amount: 20,
-      discount: 10,
-      guaranty: 2,
-      deliver: true,
-      owner: null,
-      brand: "Avalon",
-      battery: null,
-      country: "uzbekistan",
-      subCategory: {
-        id: 1,
-        name: "Home and garden",
-        category: {
-          id: 1,
-          name: "Maishiy texnika",
-        },
-      },
-      created_at: "2024-02-14T12:15:57.889009Z",
-      updated_at: "2024-02-14T13:09:09.009448Z",
-    },
-    {
-      id: 2,
-      img: "https://assets.asaxiy.uz/product/items/desktop/5751ec3e9a4feab575962e78e006250d2023092315141339805ZzWfkPMMFW.png.webp",
-      name: "Iphone 15 pro",
-      description: "asdasd",
-      price: 15000000,
-      amount: 60,
-      discount: 15,
-      guaranty: 1,
-      deliver: true,
-      owner: null,
-      brand: "Apple",
-      battery: "4000",
-      country: "USA",
-      subCategory: {
-        id: 1,
-        name: "Telephone",
-        category: {
-          id: 1,
-          name: "texnika",
-        },
-      },
-      created_at: "2024-02-14T12:15:57.889009Z",
-      updated_at: "2024-02-14T13:09:09.009448Z",
-    },
-    {
-      id: 3,
-      img: "https://assets.asaxiy.uz/product/items/desktop/69a89c5e6a722eb5cc98c0f4a431ab7c2022112912272643093gYTuK1X6Z5.jpg.webp",
-      name: "Hp probook",
-      description: "asdasd",
-      price: 7000000,
-      amount: 20,
-      discount: 5,
-      guaranty: 1.5,
-      deliver: true,
-      owner: null,
-      brand: "Hp",
-      battery: "10000",
-      country: "USA",
-      subCategory: {
-        id: 1,
-        name: "Home and garden",
-        category: {
-          id: 1,
-          name: "Maishiy texnika",
-        },
-      },
-      created_at: "2024-02-14T12:15:57.889009Z",
-      updated_at: "2024-02-14T13:09:09.009448Z",
-    },
-    {
-      id: 4,
-      img: "https://assets.asaxiy.uz/product/main_image/desktop//6347a8bbbb78b.jpg.webp",
-      name: "Muzlatgich",
-      description: "asdasd",
-      price: 5000000,
-      amount: 34,
-      discount: 10,
-      guaranty: 3,
-      deliver: true,
-      owner: null,
-      brand: "LG",
-      battery: null,
-      country: "Korea",
-      subCategory: {
-        id: 1,
-        name: "Home and garden",
-        category: {
-          id: 1,
-          name: "Maishiy texnika",
-        },
-      },
-      created_at: "2024-02-14T12:15:57.889009Z",
-      updated_at: "2024-02-14T13:09:09.009448Z",
-    },
-    {
-      id: 5,
-      img: "https://assets.asaxiy.uz/product/items/desktop/ec96f542f20153a2e8c5903a90d020e42020012212344558822xA2y79w5Km.jpg.webp",
-      name: "gaz plita",
-      description: "asdasd",
-      price: 1500000,
-      amount: 20,
-      discount: null,
-      guaranty: 1,
-      deliver: true,
-      owner: null,
-      brand: "Artel",
-      battery: null,
-      country: "uzbekistan",
-      subCategory: {
-        id: 1,
-        name: "Home and garden",
-        category: {
-          id: 1,
-          name: "Maishiy texnika",
-        },
-      },
-      created_at: "2024-02-14T12:15:57.889009Z",
-      updated_at: "2024-02-14T13:09:09.009448Z",
-    },
-    {
-      id: 6,
-      img: "https://assets.asaxiy.uz/product/main_image/desktop//6525212d4e46f.jpg.webp",
-      name: "smart watch",
-      description: "asdasd",
-      price: 500000,
-      amount: 60,
-      discount: null,
-      guaranty: 1,
-      deliver: true,
-      owner: null,
-      brand: "Xiaomi",
-      battery: "1821",
-      country: "xitoy",
-      subCategory: {
-        id: 1,
-        name: "Home and garden",
-        category: {
-          id: 1,
-          name: "Maishiy texnika",
-        },
-      },
-      created_at: "2024-02-14T12:15:57.889009Z",
-      updated_at: "2024-02-14T13:09:09.009448Z",
-    },
-    {
-      id: 7,
-      img: "https://assets.asaxiy.uz/product/items/desktop/5751ec3e9a4feab575962e78e006250d2023092315141339805ZzWfkPMMFW.png.webp",
-      name: "Iphone 13 pro",
-      description: "asdasd",
-      price: 15000000,
-      amount: 60,
-      discount: 15,
-      guaranty: 1,
-      deliver: true,
-      owner: null,
-      brand: "Apple",
-      battery: "3000",
-      country: "USA",
-      subCategory: {
-        id: 1,
-        name: "Telephone",
-        category: {
-          id: 1,
-          name: "texnika",
-        },
-      },
-      created_at: "2024-02-14T12:15:57.889009Z",
-      updated_at: "2024-02-14T13:09:09.009448Z",
-    },
-  ]);
 
   const [product, setProduct] = useState(data);
 

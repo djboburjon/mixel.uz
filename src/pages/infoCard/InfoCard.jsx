@@ -13,11 +13,11 @@ import { MdOutlinePayments } from "react-icons/md";
 import CheaperCards from "../../components/cheaperCards/CheaperCards";
 import Recommended from "../../components/recommended/Recommended";
 
-function InfoCard() {
-  // const {id} = useParams()
-  // const infoProduct = product.filter((item) => {
-  //   return item.id == id
-  // })
+function InfoCard({data}) {
+  const {id} = useParams()
+  const product = data.filter((item) => {
+    return item.id == id
+  })
   const [mainImg, setMainImg] = useState("../imgs/notebook.png")
 
   return (

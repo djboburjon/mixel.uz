@@ -3,7 +3,7 @@ import "./Recommended.css";
 import { FaScaleBalanced } from "react-icons/fa6";
 import { FaHeart } from "react-icons/fa";
 import { PiShoppingCartSimpleFill } from "react-icons/pi";
-import { Link } from "@mui/material";
+import { Link } from "react-router-dom";
 
 function Recommended({ data }) {
   return (

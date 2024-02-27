@@ -88,7 +88,7 @@ function InfoCard({ data }) {
                 <div className="middle_head">
                   <h1>{name}</h1>
                   <div className="price">
-                    {price} cум{" "}
+                    {price.toLocaleString()} cум{" "}
                     <span>
                       <IoIosInformationCircleOutline />
                     </span>

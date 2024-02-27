@@ -45,19 +45,16 @@ function InfoCard({ data }) {
   
   useEffect(() => {
     setMainImg(img)
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   }, [id])
 
   return (
     <>
       {product && (
-        <div
-          onLoad={() => {
-            window.scrollTo({
-              top: 0,
-              behavior: "smooth",
-            });
-          }}
-        >
+        <div>
           <div className="inWay">
             <div className="container">
               <p>

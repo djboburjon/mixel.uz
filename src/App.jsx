@@ -6,7 +6,7 @@ import Home from "./pages/home/Home";
 import Filter from "./pages/filter/Filter";
 import CheaperCards from "./components/cheaperCards/CheaperCards";
 import InfoCard from "./pages/infoCard/InfoCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [data, setData] = useState([
@@ -517,6 +517,16 @@ function App() {
       updated_at: "2024-02-14T13:09:09.009448Z",
     },
   ]);
+
+  const getData = async () => {
+    const req = await fetch("https://ecommerce0002.pythonanywhere.com/main/products/")
+    const data = await req.json()
+    console.log(data);
+  }
+
+  useEffect(()=>{
+    getData()
+  }, [])
 
   return (
     <>

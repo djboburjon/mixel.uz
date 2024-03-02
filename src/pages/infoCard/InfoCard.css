@@ -171,13 +171,17 @@
   gap: 20px;
 }
 
-.right_card-content:first-child {
+.right_card-content:nth-child(2) {
   margin-bottom: 20px;
 }
 
 .right_card-content p {
   display: flex;
   align-items: center;
+}
+
+.right_card-content p span {
+  padding-left: 6px;
 }
 
 .right_card-info ul {

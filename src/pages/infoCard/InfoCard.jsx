@@ -325,14 +325,14 @@ function InfoCard() {
                     <FaShippingFast />
 
                     <p>
-                      <h3>Доставка:</h3> Бесплатно
+                      <h3>Доставка:</h3> <span>Бесплатно</span>
                     </p>
                   </div>
                   <div className="right_card-content">
                     <IoTimerSharp />
 
                     <p>
-                      <h3>Срок поставки:</h3>{data.product.deliver}
+                      <h3>Срок поставки:</h3> <span>{data.product.deliver}</span>
                     </p>
                   </div>
                   <div className="right_card-content">

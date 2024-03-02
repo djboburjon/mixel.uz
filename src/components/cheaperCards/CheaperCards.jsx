@@ -13,12 +13,18 @@ function CheaperCards({ filter_wide, product }) {
           <div className="card" key={item.id}>
             <div className="card-info">
               <Link to={`/filter/${item.id}`}>
-                <img src={`https://ecommerce0003.pythonanywhere.com/${item.img_main}`} alt="Product image" />
+                <img
+                  src={`https://ecommerce0003.pythonanywhere.com/${item.img_main}`}
+                  alt="Product image"
+                />
               </Link>
             </div>{" "}
             <div>
               <div className="last-price">
-                {Math.floor((item.price / 12) * 1.3).toLocaleString().replaceAll(",", " ")} сум/мес
+                {Math.floor((item.price / 12) * 1.3)
+                  .toLocaleString()
+                  .replaceAll(",", " ")}{" "}
+                сум/мес
               </div>
               <p>{item.price.toLocaleString().replaceAll(",", " ")} сум</p>
 

@@ -10,11 +10,12 @@ import { LuRefreshCw } from "react-icons/lu";
 import { TfiHeadphoneAlt } from "react-icons/tfi";
 import { FaShippingFast } from "react-icons/fa";
 import { MdOutlinePayments } from "react-icons/md";
+import { IoTimerSharp } from "react-icons/io5";
 import CheaperCards from "../../components/cheaperCards/CheaperCards";
 import Recommended from "../../components/recommended/Recommended";
 
 function InfoCard() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   const { id } = useParams();
 
   const getData = async () => {
@@ -30,8 +31,8 @@ function InfoCard() {
       .then((response) => response.json())
       .then((result) => setData(result))
       .catch((error) => console.error(error));
-    };
-    
+  };
+
   // const [mainImg, setMainImg] = useState(null);
 
   useEffect(() => {
@@ -60,7 +61,10 @@ function InfoCard() {
             <div className="container">
               <div className="info_main-left">
                 <div className="mainImg">
-                  {/* <img src={mainImg} alt="Info Main Image" /> */}
+                  <img
+                    src={`https://ecommerce0003.pythonanywhere.com/${data.img_main}`}
+                    alt="Info Main Image"
+                  />
                 </div>
                 <div className="ex-imgs">
                   {/* {imgs.map((item) => {
@@ -78,9 +82,9 @@ function InfoCard() {
               </div>
               <div className="info_main-middle">
                 <div className="middle_head">
-                  <h1>{data.name}</h1>
+                  <h1>{data.product.name}</h1>
                   <div className="price">
-                    {data.price.toLocaleString()} cум{" "}
+                    {data.product.price.toLocaleString()} cум{" "}
                     <span>
                       <IoIosInformationCircleOutline />
                     </span>
@@ -109,10 +113,11 @@ function InfoCard() {
                   <hr />
                   <div className="specific-name">
                     <p>Описание</p>
-                    <p>{data.description}</p>
+                    <p>{data.product.description}</p>
                   </div>
                   <hr />
                 </div>
+
                 <div className="parameters">
                   <h2>Технические параметры</h2>
                   <div className="paramInfo">
@@ -135,92 +140,151 @@ function InfoCard() {
                     <p>NX.A5UAA.006.</p>
                   </div>
                 </div>
-
-                <div className="Parameters">
+                {data.product.display && <div className="Parameters">
                   <h2>Дисплей</h2>
-                  <div className="paramInfo">
-                    <p>Поверхность</p>
-                    <p>Матовая</p>
-                  </div>
+                  {data.product.display.surface && (
+                    <div className="paramInfo">
+                      <p>Поверхность</p>
+                      <p>{data.product.display.surface}</p>
+                    </div>
+                  )}
                   <div className="paramInfo">
                     <p>Сенсорный экран</p>
-                    <p>Нет</p>
+                    <p>{data.product.display.touch_screen ? `Yes` : `No`}</p>
                   </div>
-                  <div className="paramInfo">
-                    <p>Частота смены кадров </p>
-                    <p>60 Гц</p>
-                  </div>
-                  <div className="paramInfo">
-                    <p>Тип матрицы </p>
-                    <p>IPS</p>
-                  </div>
-                  <div className="paramInfo">
-                    <p>Разрешение </p>
-                    <p>Full HD 1920x1080 Пикселей</p>
-                  </div>
-                  <div className="paramInfo">
-                    <p>Диагональ </p>
-                    <p>14.0</p>
-                  </div>
-                </div>
-                <div className="Parameters">
+                  {data.product.display.frame_rate && (
+                    <div className="paramInfo">
+                      <p>Частота смены кадров </p>
+                      <p>{data.product.display.frame_rate} Гц</p>
+                    </div>
+                  )}
+                  {data.product.display.matrix_type && (
+                    <div className="paramInfo">
+                      <p>Тип матрицы </p>
+                      <p>{data.product.display.matrix_type}</p>
+                    </div>
+                  )}
+                  {data.product.display.resolution && (
+                    <div className="paramInfo">
+                      <p>Разрешение </p>
+                      <p>{data.product.display.resolution}</p>
+                    </div>
+                  )}
+                  {data.product.display.dioganal && (
+                    <div className="paramInfo">
+                      <p>Диагональ </p>
+                      <p>{data.product.display.dioganal}</p>
+                    </div>
+                  )}
+                </div>}
+                {data.product.processor && <div className="Parameters">
                   <h2>Процессор</h2>
-                  <div className="paramInfo">
-                    <p>Бренд</p>
-                    <p>Intel®</p>
-                  </div>
-                  <div className="paramInfo">
-                    <p>Семейство</p>
-                    <p>Core™ i7</p>
-                  </div>
-                  <div className="paramInfo">
-                    <p>Модель </p>
-                    <p>1165G7</p>
-                  </div>
-                  <div className="paramInfo">
-                    <p>Поколение</p>
-                    <p>11</p>
-                  </div>
-                  <div className="paramInfo">
-                    <p>Количество ядер </p>
-                    <p>4</p>
-                  </div>
-                  <div className="paramInfo">
-                    <p>Количество потоков</p>
-                    <p>8</p>
-                  </div>
-                  <div className="paramInfo">
-                    <p>Минимальная частота</p>
-                    <p>2.8 ГГц</p>
-                  </div>
-                  <div className="paramInfo">
-                    <p>Максимальная частота</p>
-                    <p>4.7 ГГц</p>
-                  </div>
-                  <div className="paramInfo">
-                    <p>Кэш </p>
-                    <p>12 Мб</p>
-                  </div>
-                  <div className="paramInfo">
-                    <p>Встроенная видеокарта</p>
-                    <p>Intel® Iris® Xe Graphics</p>
-                  </div>
-                </div>
-                <div className="Parameters">
+                  {data.product.processor.brand && (
+                    <div className="paramInfo">
+                      <p>Бренд</p>
+                      <p>{data.product.processor.brand}</p>
+                    </div>
+                  )}
+                  {data.product.processor.family && (
+                    <div className="paramInfo">
+                      <p>Семейство</p>
+                      <p>{data.product.processor.family}</p>
+                    </div>
+                  )}
+                  {data.product.processor.model && (
+                    <div className="paramInfo">
+                      <p>Модель </p>
+                      <p>{data.product.processor.model}</p>
+                    </div>
+                  )}
+                  {data.product.processor.gen && (
+                    <div className="paramInfo">
+                      <p>Поколение</p>
+                      <p>{data.product.processor.gen}</p>
+                    </div>
+                  )}
+                  {data.product.processor.core && (
+                    <div className="paramInfo">
+                      <p>Количество ядер </p>
+                      <p>{data.product.processor.core}</p>
+                    </div>
+                  )}
+                  {data.product.processor.thread && (
+                    <div className="paramInfo">
+                      <p>Количество потоков</p>
+                      <p>{data.product.processor.thread}</p>
+                    </div>
+                  )}
+                  {data.product.processor.min_frequency && (
+                    <div className="paramInfo">
+                      <p>Минимальная частота</p>
+                      <p>{data.product.processor.min_frequency} ГГц</p>
+                    </div>
+                  )}
+                  {data.product.processor.max_frequency && (
+                    <div className="paramInfo">
+                      <p>Максимальная частота</p>
+                      <p>{data.product.processor.max_frequency} ГГц</p>
+                    </div>
+                  )}
+                  {data.product.processor.cache && (
+                    <div className="paramInfo">
+                      <p>Кэш </p>
+                      <p>{data.product.processor.cache} Мб</p>
+                    </div>
+                  )}
+                  {data.product.processor.video_card && (
+                    <div className="paramInfo">
+                      <p>Встроенная видеокарта</p>
+                      <p>{data.product.processor.video_card}</p>
+                    </div>
+                  )}
+                </div>}
+                {data.product.ram && <div className="Parameters">
                   <h2>Оперативная память</h2>
-                  <div className="paramInfo">
+                  {data.product.ram.size && <div className="paramInfo">
                     <p>Объем оперативной памяти</p>
-                    <p>MacBook Pro 13 MXK32ZP/A Space Gray</p>
-                  </div>
-                  <div className="paramInfo">
+                    <p>{data.product.ram.size}</p>
+                  </div>}
+                  {data.product.ram.model && <div className="paramInfo">
                     <p>Поколение ОЗУ</p>
-                    <p>Новый</p>
-                  </div>
-                  <div className="paramInfo">
+                    <p>{data.product.ram.model}</p>
+                  </div>}
+                  {data.product.ram.type && <div className="paramInfo">
                     <p>Частота оперативной памяти</p>
-                    <p>MacBook Pro 13 MXK32ZP/A Space Gray</p>
-                  </div>
-                </div>
+                    <p>{data.product.ram.type}</p>
+                  </div>}
+                </div>}
+                {data.product.videocard && <div className="Parameters">
+                  <h2>Видеокарта</h2>
+                  {data.product.videocard.size && <div className="paramInfo">
+                    <p>Объем Видеокарта памяти</p>
+                    <p>{data.product.videocard.size}</p>
+                  </div>}
+                  {data.product.videocard.model && <div className="paramInfo">
+                    <p>Поколение ОЗУ</p>
+                    <p>{data.product.videocard.model}</p>
+                  </div>}
+                  {data.product.videocard.type && <div className="paramInfo">
+                    <p>Частота Видеокарта памяти</p>
+                    <p>{data.product.videocard.type}</p>
+                  </div>}
+                </div>}
+                {data.product.camera && <div className="Parameters">
+                  <h2>Камера</h2>
+                  {data.product.camera.pixel_size && <div className="paramInfo">
+                    <p>Объем пиксель</p>
+                    <p>{data.product.camera.pixel_size}</p>
+                  </div>}
+                  {data.product.camera.model && <div className="paramInfo">
+                    <p>Модель</p>
+                    <p>{data.product.camera.model}</p>
+                  </div>}
+                  {data.product.camera.type && <div className="paramInfo">
+                    <p>Тип камеры</p>
+                    <p>{data.product.camera.type}</p>
+                  </div>}
+                </div>}
               </div>
               <div className="info_main-right">
                 <div className="right_card">
@@ -261,7 +325,14 @@ function InfoCard() {
                     <FaShippingFast />
 
                     <p>
-                      <h3>Доставка:</h3>Бесплатно
+                      <h3>Доставка:</h3> Бесплатно
+                    </p>
+                  </div>
+                  <div className="right_card-content">
+                    <IoTimerSharp />
+
+                    <p>
+                      <h3>Срок поставки:</h3>{data.product.deliver}
                     </p>
                   </div>
                   <div className="right_card-content">

@@ -13,7 +13,7 @@ function CheaperCards({ filter_wide, product }) {
           <div className="card" key={item.id}>
             <div className="card-info">
               <Link to={`/filter/${item.id}`}>
-                <img src={item.img} alt="" />
+                <img src={`https://ecommerce0003.pythonanywhere.com/${item.img_main}`} alt="Product image" />
               </Link>
             </div>{" "}
             <div>

@@ -13,47 +13,39 @@ import { MdOutlinePayments } from "react-icons/md";
 import CheaperCards from "../../components/cheaperCards/CheaperCards";
 import Recommended from "../../components/recommended/Recommended";
 
-function InfoCard({ data }) {
+function InfoCard() {
+  const [data, setData] = useState([]);
   const { id } = useParams();
-  const product = data.filter((item) => {
-    return item.id == id;
-  });
-  const {
-    img,
-    imgs,
-    name,
-    description,
-    price,
-    amount,
-    parametr,
-    info,
-    display,
-    protsessor,
-    ram,
-    discount,
-    guaranty,
-    deliver,
-    owner,
-    brand,
-    battery,
-    country,
-    subCategory,
-    created_at,
-    updated_at,
-  } = product[0];
-  const [mainImg, setMainImg] = useState(null);
-  
+
+  const getData = async () => {
+    const requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+
+    fetch(
+      `https://ecommerce0003.pythonanywhere.com/main/products/${id}/`,
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => setData(result))
+      .catch((error) => console.error(error));
+    };
+    
+  // const [mainImg, setMainImg] = useState(null);
+
   useEffect(() => {
-    setMainImg(img)
+    getData();
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
-  }, [id])
+    //   setMainImg(img)
+  }, [id]);
 
   return (
     <>
-      {product && (
+      {data && (
         <div>
           <div className="inWay">
             <div className="container">
@@ -68,10 +60,10 @@ function InfoCard({ data }) {
             <div className="container">
               <div className="info_main-left">
                 <div className="mainImg">
-                  <img src={mainImg} alt="Info Main Image" />
+                  {/* <img src={mainImg} alt="Info Main Image" /> */}
                 </div>
                 <div className="ex-imgs">
-                  {imgs.map((item) => {
+                  {/* {imgs.map((item) => {
                     return (
                       <img
                         onClick={() => {
@@ -81,14 +73,14 @@ function InfoCard({ data }) {
                         alt="Info Main Image"
                       />
                     );
-                  })}
+                  })} */}
                 </div>
               </div>
               <div className="info_main-middle">
                 <div className="middle_head">
-                  <h1>{name}</h1>
+                  <h1>{data.name}</h1>
                   <div className="price">
-                    {price.toLocaleString()} cум{" "}
+                    {data.price.toLocaleString()} cум{" "}
                     <span>
                       <IoIosInformationCircleOutline />
                     </span>
@@ -117,7 +109,7 @@ function InfoCard({ data }) {
                   <hr />
                   <div className="specific-name">
                     <p>Описание</p>
-                    <p>{description}</p>
+                    <p>{data.description}</p>
                   </div>
                   <hr />
                 </div>
@@ -299,7 +291,7 @@ function InfoCard({ data }) {
                 <h2>Товары дешевле:</h2>
                 <p>Посмотреть все →</p>
               </div>
-              <Recommended data={data} />
+              {/* <Recommended data={data} /> */}
             </div>
           </div>
         </div>

@@ -9,26 +9,6 @@ import InfoCard from "./pages/infoCard/InfoCard";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [data, setData] = useState([]);
-
-  const getData = async () => {
-    const requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
-
-    fetch(
-      "https://ecommerce0003.pythonanywhere.com/main/products/",
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((result) => setData(result))
-      .catch((error) => console.error(error));
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
 
   return (
     <>
@@ -36,7 +16,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/products/:type" element={<Filter data={data} />} />
+          <Route path="/products/:type" element={<Filter />} />
           <Route path="/filter/:id" element={<InfoCard/>} />
         </Routes>
         <Footer />

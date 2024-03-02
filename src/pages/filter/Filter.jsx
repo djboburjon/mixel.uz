@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Filter.css";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -21,7 +21,7 @@ function valuetext(value) {
   return `${value}°C`;
 }
 
-function Filter({data}) {
+function Filter() {
   const [value, setValue] = useState([300, 103300000]);
   const [brand, setBrand] = useState([]);
   const [battery, setBattery] = useState([]);
@@ -36,7 +36,7 @@ function Filter({data}) {
   const [disableText, setDisableText] = useState(true);
   const [filter_wide, setFilter_wide] = useState(false);
 
-  const [product, setProduct] = useState(data);
+  const [product, setProduct] = useState();
 
   const filtered = () => {
     const newData = data.filter((item) => {
@@ -55,6 +55,26 @@ function Filter({data}) {
       behavior: "smooth",
     });
   };
+
+  const getData = async () => {
+    const requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://ecommerce0003.pythonanywhere.com/main/products/",
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => setProduct(result))
+      .catch((error) => console.error(error));
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
 
   return (
     <div

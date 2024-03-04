@@ -120,7 +120,7 @@ function InfoCard() {
                       {!showMore
                         ? data.product.description.slice(0, 200)
                         : data.product.description}
-                      <span onClick={() => {
+                      {data.product.description.length > 300 && <span onClick={() => {
                         setShowMore(!showMore)
                         if(showMore) {
                           window.scrollTo({
@@ -130,7 +130,7 @@ function InfoCard() {
                         }
                       }}>
                         {showMore ? "Read Less" : "Read More"}
-                      </span>
+                      </span>}
                     </p>
                   </div>
                   <hr />

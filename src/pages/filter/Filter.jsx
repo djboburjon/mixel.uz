@@ -56,14 +56,14 @@ function Filter() {
     });
   };
 
-  const getData = async () => {
+  const getData = async (api) => {
     const requestOptions = {
       method: "GET",
       redirect: "follow",
     };
 
     fetch(
-      "https://ecommerce0003.pythonanywhere.com/main/products/",
+      api,
       requestOptions
     )
       .then((response) => response.json())
@@ -72,8 +72,23 @@ function Filter() {
   };
 
   useEffect(() => {
-    getData();
-  }, []);
+    if (type == "accessories") {
+      getData(
+        "https://ecommerce0003.pythonanywhere.com/main/products/?subCategory_id=6"
+      )
+    } else if (type == "monoblocks") {
+      getData("https://ecommerce0003.pythonanywhere.com/main/products/?subCategory_id=4")
+    } else if (type == "laptops") {
+      getData("https://ecommerce0003.pythonanywhere.com/main/products/?subCategory_id=1")
+    }else if (type == "smartscreens") {
+      getData("https://ecommerce0003.pythonanywhere.com/main/products/?subCategory_id=5")
+    }else if (type == "networks") {
+      getData("https://ecommerce0003.pythonanywhere.com/main/products/?subCategory_id=1")
+    }
+    else if (type == "equipments") {
+      getData("https://ecommerce0003.pythonanywhere.com/main/products/?subCategory_id=1")
+    }
+  }, [type]);
 
 
   return (

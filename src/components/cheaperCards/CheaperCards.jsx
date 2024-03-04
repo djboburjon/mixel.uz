@@ -28,7 +28,7 @@ function CheaperCards({ filter_wide, product }) {
               </div>
               <p>{item.price.toLocaleString().replaceAll(",", " ")} сум</p>
 
-              <h2>{item.name}</h2>
+              <h2>{item.name.slice(0, 30)}...</h2>
             </div>
             <hr />
             <div className="additions">

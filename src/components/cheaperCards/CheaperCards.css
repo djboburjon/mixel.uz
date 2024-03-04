@@ -6,4 +6,6 @@
 
 .card h2 {
   margin-bottom: 20px;
+  height: 90px;
+  overflow: hidden;
 }

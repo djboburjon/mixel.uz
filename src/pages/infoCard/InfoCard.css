@@ -18,6 +18,8 @@
 .mainImg img {
   width: 300px;
   margin-bottom: 10px;
+  height: 80%;
+  object-fit: contain;
 }
 
 .ex-imgs {

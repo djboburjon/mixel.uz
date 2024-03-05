@@ -105,13 +105,13 @@ function Navbar() {
           </button>
           <ul className="links">
             <li className="link">
-              <NavLink to={"/"}>Наши магазины</NavLink>
+              <NavLink to={"/products/all"}>Наши магазины</NavLink>
             </li>
             <li className="link">
-              <NavLink to={"/products/monoblocks"}>Моноблоки</NavLink>
+              <NavLink to={"/products/monoblock"}>Моноблоки</NavLink>
             </li>
             <li className="link">
-              <NavLink to={"/products/smartscreens"}>Телефоны, планшеты</NavLink>
+              <NavLink to={"/products/phones"}>Телефоны, планшеты</NavLink>
             </li>
             <li className="link">
               <NavLink to={"/products/laptops"}>Ноутбуки</NavLink>

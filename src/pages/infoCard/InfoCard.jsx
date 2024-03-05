@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./InfoCard.css";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import { FaScaleBalanced } from "react-icons/fa6";
 import { FaHeart } from "react-icons/fa";
@@ -401,7 +401,9 @@ function InfoCard({setLoading}) {
             <div className="container">
               <div className="content_head">
                 <h2>Товары дешевле:</h2>
-                <p>Посмотреть все →</p>
+                <p>
+                  <Link to={`/products/${data.product.subCategory.name.toLowerCase()}`}>Посмотреть все →</Link>
+                </p>
               </div>
               {/* <Recommended data={data} /> */}
             </div>

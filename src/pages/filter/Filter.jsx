@@ -83,17 +83,19 @@ function Filter({setLoading}) {
       getData(
         "https://ecommerce0003.pythonanywhere.com/main/products/?subCategory_id=6"
       )
-    } else if (type == "monoblocks") {
+    } else if (type == "monoblock") {
       getData("https://ecommerce0003.pythonanywhere.com/main/products/?subCategory_id=4")
     } else if (type == "laptops") {
       getData("https://ecommerce0003.pythonanywhere.com/main/products/?subCategory_id=1")
-    }else if (type == "smartscreens") {
+    }else if (type == "phones") {
       getData("https://ecommerce0003.pythonanywhere.com/main/products/?subCategory_id=5")
     }else if (type == "networks") {
       getData("https://ecommerce0003.pythonanywhere.com/main/products/?subCategory_id=1")
+    } else if (type == "equipments") {
+      getData("https://ecommerce0003.pythonanywhere.com/main/products/?subCategory_id=7")
     }
-    else if (type == "equipments") {
-      getData("https://ecommerce0003.pythonanywhere.com/main/products/?subCategory_id=1")
+    else if (type == "all") {
+      getData("https://ecommerce0003.pythonanywhere.com/main/products")
     }
   }, [type]);
 

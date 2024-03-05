@@ -14,13 +14,14 @@ import { IoTimerSharp } from "react-icons/io5";
 import CheaperCards from "../../components/cheaperCards/CheaperCards";
 import Recommended from "../../components/recommended/Recommended";
 
-function InfoCard() {
+function InfoCard({setLoading}) {
   const [data, setData] = useState(null);
   const { id } = useParams();
   const [mainImg, setMainImg] = useState(null);
   const [showMore, setShowMore] = useState(false);
 
   const getData = async () => {
+    setLoading(true)
     const requestOptions = {
       method: "GET",
       redirect: "follow",
@@ -36,8 +37,12 @@ function InfoCard() {
         setMainImg(
           `https://ecommerce0003.pythonanywhere.com/${result.img_main}`
         );
+        setLoading(false)
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        setLoading(false)
+        console.error(error)
+      });
   };
 
   useEffect(() => {

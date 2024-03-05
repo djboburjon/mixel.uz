@@ -21,7 +21,7 @@ function valuetext(value) {
   return `${value}°C`;
 }
 
-function Filter() {
+function Filter({setLoading}) {
   const [value, setValue] = useState([300, 103300000]);
   const [brand, setBrand] = useState([]);
   const [battery, setBattery] = useState([]);
@@ -57,6 +57,7 @@ function Filter() {
   };
 
   const getData = async (api) => {
+    setLoading(true)
     const requestOptions = {
       method: "GET",
       redirect: "follow",
@@ -67,8 +68,14 @@ function Filter() {
       requestOptions
     )
       .then((response) => response.json())
-      .then((result) => setProduct(result))
-      .catch((error) => console.error(error));
+      .then((result) => {
+        setProduct(result);
+        setLoading(false)
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.error(error)
+      });
   };
 
   useEffect(() => {

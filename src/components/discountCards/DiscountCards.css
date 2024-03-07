@@ -1,5 +1,6 @@
 .card-info {
   position: relative;
+  color: black;
 }
 
 .card-info .sale {
@@ -20,6 +21,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+  color: black;
 }
 
 .dates div {

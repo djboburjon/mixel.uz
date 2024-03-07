@@ -1,19 +1,19 @@
 
-.famous {
+.famous a{
   display: flex;
   justify-content: space-between;
   border: 1px solid rgb(179, 179, 179);
   border-radius: 8px;
   padding: 10px 20px;
+  color: black;
 }
 
 .famous h2 {
-  text-align-last: left;
-  display: inline;
+  text-align: left;
+  font-size: 20px;
 }
 
 .famous img {
   width: 100px;
-  float: right;
-  transform: scale(1.4);
+  transform: scale(1.2);
 }

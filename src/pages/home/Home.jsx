@@ -56,17 +56,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Recommended */}
-      <section>
-        <div className="container">
-          <div className="content_head">
-            <h2>Рекомендуем:</h2>
-            <p>Посмотреть все →</p>
-          </div>
-          <Recommended />
-        </div>
-      </section>
-
       {/* Brands */}
       <section>
         <div className="container">

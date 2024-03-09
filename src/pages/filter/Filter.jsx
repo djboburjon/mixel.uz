@@ -21,13 +21,13 @@ function valuetext(value) {
   return `${value}°C`;
 }
 
-function Filter({setLoading}) {
+function Filter({ search, setLoading }) {
   const [value, setValue] = useState([300, 103300000]);
   const [brand, setBrand] = useState([]);
   const [battery, setBattery] = useState([]);
   const [country, setCountry] = useState([]);
 
-  const {type} = useParams()
+  const { type } = useParams();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -37,6 +37,7 @@ function Filter({setLoading}) {
   const [filter_wide, setFilter_wide] = useState(false);
 
   const [product, setProduct] = useState();
+  const [nowProducts, setNowProducts] = useState()
 
   const filtered = () => {
     const newData = data.filter((item) => {
@@ -57,24 +58,22 @@ function Filter({setLoading}) {
   };
 
   const getData = async (api) => {
-    setLoading(true)
+    setLoading(true);
     const requestOptions = {
       method: "GET",
       redirect: "follow",
     };
 
-    fetch(
-      api,
-      requestOptions
-    )
+    fetch(api, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         setProduct(result);
-        setLoading(false)
+        setNowProducts(result)
+        setLoading(false);
       })
       .catch((error) => {
         setLoading(false);
-        console.error(error)
+        console.error(error);
       });
   };
 
@@ -82,23 +81,41 @@ function Filter({setLoading}) {
     if (type == "accessories") {
       getData(
         "https://ecommerce0003.pythonanywhere.com/main/products/?subCategory_id=6"
-      )
+      );
     } else if (type == "monoblock") {
-      getData("https://ecommerce0003.pythonanywhere.com/main/products/?subCategory_id=4")
+      getData(
+        "https://ecommerce0003.pythonanywhere.com/main/products/?subCategory_id=4"
+      );
     } else if (type == "laptops") {
-      getData("https://ecommerce0003.pythonanywhere.com/main/products/?subCategory_id=1")
-    }else if (type == "phones") {
-      getData("https://ecommerce0003.pythonanywhere.com/main/products/?subCategory_id=5")
-    }else if (type == "networks") {
-      getData("https://ecommerce0003.pythonanywhere.com/main/products/?subCategory_id=1")
+      getData(
+        "https://ecommerce0003.pythonanywhere.com/main/products/?subCategory_id=1"
+      );
+    } else if (type == "phones") {
+      getData(
+        "https://ecommerce0003.pythonanywhere.com/main/products/?subCategory_id=5"
+      );
+    } else if (type == "networks") {
+      getData(
+        "https://ecommerce0003.pythonanywhere.com/main/products/?subCategory_id=1"
+      );
     } else if (type == "equipments") {
-      getData("https://ecommerce0003.pythonanywhere.com/main/products/?subCategory_id=7")
-    }
-    else if (type == "all") {
-      getData("https://ecommerce0003.pythonanywhere.com/main/products")
+      getData(
+        "https://ecommerce0003.pythonanywhere.com/main/products/?subCategory_id=7"
+      );
+    } else if (type == "all") {
+      getData("https://ecommerce0003.pythonanywhere.com/main/products");
     }
   }, [type]);
 
+  useEffect(() => {
+    if (product) {
+      setProduct(
+        nowProducts.filter((item) => {
+          return item.name.toLowerCase().includes(search.toLowerCase());
+        })
+      );
+    }
+  }, [search]);
 
   return (
     <div

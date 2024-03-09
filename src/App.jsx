@@ -11,17 +11,18 @@ import Loader from "./components/loader/Loader";
 
 function App() {
   const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState("")
 
   return (
     <>
       <BrowserRouter>
-        <Navbar />
+        <Navbar setSearch={setSearch} />
         {loading && <Loader />}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
             path="/products/:type"
-            element={<Filter setLoading={setLoading} />}
+            element={<Filter search={search} setLoading={setLoading} />}
           />
           <Route
             path="/filter/:id"

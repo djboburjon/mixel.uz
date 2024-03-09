@@ -11,20 +11,19 @@ import { LuShoppingCart } from "react-icons/lu";
 import { MdMenu } from "react-icons/md";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 
-function Navbar() {
+function Navbar({ setSearch }) {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const handleSelect = (e) => {
     navigate(e.target.value);
   };
 
-  const { pathname } = useLocation();
-  const [selectValue, setSelectValue] = useState("/products/all")
-
+  const [selectValue, setSelectValue] = useState("/products/all");
 
   useEffect(() => {
-    setSelectValue(pathname)
-  }, [pathname])
+    setSelectValue(pathname);
+  }, [pathname]);
   return (
     <nav>
       <div className="nav_top">
@@ -75,6 +74,12 @@ function Navbar() {
                 <option value={"/products/equipments"}>Оргтехника</option>
               </select>
               <input
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                  if (pathname == "/") {
+                    navigate("/products/all");
+                  }
+                }}
                 className="search_inp"
                 type="text"
                 placeholder="Телефоны и бытовая"

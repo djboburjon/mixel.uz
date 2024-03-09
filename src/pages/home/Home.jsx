@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
 import DiscountCards from "../../components/discountCards/DiscountCards";
 import FamousCategory from "../../components/famousCategory/FamousCategory";
@@ -7,8 +7,30 @@ import Recommended from "../../components/recommended/Recommended";
 import Brands from "../../components/brands/Brands";
 import Banner from "../../components/banner/Banner";
 import Advertisement from "../../components/advertisement/Advertisement";
+import { Link } from "react-router-dom";
 
 function Home() {
+
+  const [cheaper, setCheaper] = useState()
+
+  const getData = () => {
+    const requestOptions = {
+      method: "GET",
+      redirect: "follow"
+    };
+    
+    fetch("https://ecommerce0003.pythonanywhere.com/main/products/", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        setCheaper(result.filter((item) => {
+          return item.price < 2000000
+        }))
+      })
+      .catch((error) => console.error(error));
+  }
+  useEffect(() => {
+    getData()
+  }, [])
   return (
     <main>
       {/* Banner  */}
@@ -50,9 +72,11 @@ function Home() {
         <div className="container">
           <div className="content_head">
             <h2>Товары дешевле:</h2>
-            <p>Посмотреть все →</p>
+            <p>
+              <Link to={"/product/all"}>Посмотреть все →</Link>
+            </p>
           </div>
-          <CheaperCards />
+          <CheaperCards product={cheaper}/>
         </div>
       </section>
 

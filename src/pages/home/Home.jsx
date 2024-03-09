@@ -73,7 +73,7 @@ function Home() {
           <div className="content_head">
             <h2>Товары дешевле:</h2>
             <p>
-              <Link to={"/product/all"}>Посмотреть все →</Link>
+              <Link to={"/products/all"}>Посмотреть все →</Link>
             </p>
           </div>
           <CheaperCards product={cheaper}/>

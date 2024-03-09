@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import { IoLocationOutline } from "react-icons/io5";
 import { IoCallOutline } from "react-icons/io5";
@@ -9,9 +9,22 @@ import { FaBalanceScaleLeft } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { LuShoppingCart } from "react-icons/lu";
 import { MdMenu } from "react-icons/md";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 
 function Navbar() {
+  const navigate = useNavigate();
+
+  const handleSelect = (e) => {
+    navigate(e.target.value);
+  };
+
+  const { pathname } = useLocation();
+  const [selectValue, setSelectValue] = useState("/products/all")
+
+
+  useEffect(() => {
+    setSelectValue(pathname)
+  }, [pathname])
   return (
     <nav>
       <div className="nav_top">
@@ -44,18 +57,22 @@ function Navbar() {
       <div className="nav_bottom">
         <div className="nav_bottom-top container">
           <div className="logo">
-            <Link to={"/"}><img src="/imgs/logo.png" alt="Logotip" /></Link>
+            <Link to={"/"}>
+              <img src="/imgs/logo.png" alt="Logotip" />
+            </Link>
           </div>
           <form className="search">
             <label>
-              <select>
-                <option>Все категории</option>
-                <option>Моноблоки</option>
-                <option>Телефоны, планшеты</option>
-                <option>Ноутбуки</option>
-                <option>Комплектующие</option>
-                <option>Сетевое оборудование</option>
-                <option>Оргтехника</option>
+              <select value={selectValue} onChange={handleSelect}>
+                <option value={"/products/all"}>Все категории</option>
+                <option value={"/products/monoblock"}>Моноблоки</option>
+                <option value={"/products/phones"}>Телефоны, планшеты</option>
+                <option value={"/products/laptops"}>Ноутбуки</option>
+                <option value={"/products/accessories"}>Комплектующие</option>
+                <option value={"/products/networks"}>
+                  Сетевое оборудование
+                </option>
+                <option value={"/products/equipments"}>Оргтехника</option>
               </select>
               <input
                 className="search_inp"

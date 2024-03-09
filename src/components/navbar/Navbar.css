@@ -71,11 +71,16 @@
 }
 
 .search select {
+  padding: 6px;
   background: transparent;
   color: gray;
   outline: none;
   border: none;
   cursor: pointer;
+}
+
+.search select option {
+  font-size: 14px;
 }
 
 .search_inp {

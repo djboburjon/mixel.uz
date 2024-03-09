@@ -17,6 +17,10 @@
   border-radius: 50%;
 }
 
+.card-info h2 {
+  line-height: 30px;
+}
+
 .dates {
   display: flex;
   justify-content: space-between;

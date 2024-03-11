@@ -22,7 +22,7 @@ function valuetext(value) {
 }
 
 function Filter({ search, setLoading }) {
-  const [value, setValue] = useState([300, 103300000]);
+  const [value, setValue] = useState([300, 10000000]);
   const [brand, setBrand] = useState([]);
   const [battery, setBattery] = useState([]);
   const [country, setCountry] = useState([]);
@@ -161,7 +161,7 @@ function Filter({ search, setLoading }) {
                   <input
                     value={`до ${value[1]}`}
                     type="text"
-                    placeholder="до 103 300 000"
+                    placeholder="до 30 000 000"
                   />
                 </div>
                 <Box>
@@ -171,7 +171,7 @@ function Filter({ search, setLoading }) {
                     onChange={handleChange}
                     getAriaValueText={valuetext}
                     min={0}
-                    max={150000000}
+                    max={30000000}
                     style={{ color: "#ed3729" }}
                   />
                 </Box>

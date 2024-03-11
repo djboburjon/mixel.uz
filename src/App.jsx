@@ -8,15 +8,19 @@ import CheaperCards from "./components/cheaperCards/CheaperCards";
 import InfoCard from "./pages/infoCard/InfoCard";
 import { useEffect, useState } from "react";
 import Loader from "./components/loader/Loader";
+import Login from "./components/login/Login";
 
 function App() {
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("")
 
+  const [login, setLogin] = useState(false)
+
   return (
     <>
       <BrowserRouter>
-        <Navbar setSearch={setSearch} />
+        <Login login={login} setLogin={setLogin}/>
+        <Navbar setSearch={setSearch} setLogin={setLogin} />
         {loading && <Loader />}
         <Routes>
           <Route path="/" element={<Home />} />

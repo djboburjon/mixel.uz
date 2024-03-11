@@ -11,7 +11,7 @@ import { LuShoppingCart } from "react-icons/lu";
 import { MdMenu } from "react-icons/md";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 
-function Navbar({ setSearch }) {
+function Navbar({ setSearch, setLogin }) {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
@@ -93,7 +93,9 @@ function Navbar({ setSearch }) {
             </label>
           </form>
           <div className="get_info">
-            <div className="login">
+            <div className="login_icon" onClick={()=>{
+                setLogin(true)
+              }}>
               <FiUser />
               <p>Войти</p>
             </div>

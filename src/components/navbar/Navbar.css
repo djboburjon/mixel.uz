@@ -123,7 +123,11 @@
   gap: 20px;
 }
 
-.get_info .login {
+.get_info > div {
+  cursor: pointer;
+}
+
+.get_info .login_icon {
   text-align: center;
 }
 

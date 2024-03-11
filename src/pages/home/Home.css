@@ -31,6 +31,10 @@ main {
   margin-bottom: 30px;
 }
 
+.content_head a {
+  color: black;
+}
+
 .cards {
   display: flex;
   justify-content: space-between;

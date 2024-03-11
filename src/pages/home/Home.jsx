@@ -45,7 +45,9 @@ function Home() {
         <div className="container">
           <div className="content_head">
             <h2>Горящие предложения</h2>
-            <p>Посмотреть все →</p>
+            <p>
+              <Link to={"/products/discount"}>Посмотреть все →</Link>
+            </p>
           </div>
           <DiscountCards />
         </div>

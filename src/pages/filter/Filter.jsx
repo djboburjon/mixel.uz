@@ -102,7 +102,10 @@ function Filter({ search, setLoading }) {
       getData(
         "https://ecommerce0003.pythonanywhere.com/main/products/?subCategory_id=7"
       );
-    } else if (type == "all") {
+    } else if (type == "discount") {
+      getData("https://ecommerce0003.pythonanywhere.com/main/products/?discount=true");
+    }
+     else if (type == "all") {
       getData("https://ecommerce0003.pythonanywhere.com/main/products");
     }
   }, [type]);

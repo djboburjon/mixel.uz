@@ -40,13 +40,11 @@ function Filter({ search, setLoading }) {
   const [nowProducts, setNowProducts] = useState()
 
   const filtered = () => {
-    const newData = data.filter((item) => {
+    const newData = nowProducts.filter((item) => {
       return brand.length
         ? brand.includes(item.brand)
-        : item && battery.length
-        ? battery.includes(item.battery)
         : item && country.length
-        ? country.includes(item.country)
+        ? country.includes(item.country?.toLowerCase())
         : item && item.price > value[0] && item.price < value[1];
     });
     setProduct(newData);
@@ -254,7 +252,7 @@ function Filter({ search, setLoading }) {
               </AccordionDetails>
             </Accordion>
 
-            <Accordion>
+            {/* <Accordion>
               <AccordionSummary
                 expandIcon={<FaAngleDown />}
                 aria-controls="panel2-content"
@@ -299,7 +297,7 @@ function Filter({ search, setLoading }) {
                   value={5000}
                 />
               </AccordionDetails>
-            </Accordion>
+            </Accordion> */}
 
             <Accordion>
               <AccordionSummary
@@ -324,25 +322,25 @@ function Filter({ search, setLoading }) {
               >
                 <FormControlLabel
                   control={<Checkbox />}
-                  label="Вьетнам"
-                  value="vetnam"
+                  label="Korea"
+                  value="korea"
                 />
                 <br />
                 <FormControlLabel
                   control={<Checkbox />}
                   label="Китай"
-                  value="xitoy"
+                  value="china"
                 />
                 <br />
                 <FormControlLabel
                   control={<Checkbox />}
                   label="USA"
-                  value="USA"
+                  value="usa"
                 />
                 <br />
                 <FormControlLabel
                   control={<Checkbox />}
-                  label="uzbekistan"
+                  label="Uzbekistan"
                   value="uzbekistan"
                 />
               </AccordionDetails>

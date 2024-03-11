@@ -60,7 +60,7 @@ function DiscountCards() {
                         <del>1 529 000 сум</del> |{" "}
                         <span className="last-price">350 000 сум</span>
                       </p>
-                      <h2>Умные часы Haylou RT-LS05S</h2>
+                      <h2>{item.name}</h2>
                       <p>Предложение заканчивается через:</p>
                     </div>
                     <div className="dates">

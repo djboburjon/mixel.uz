@@ -61,4 +61,9 @@ footer .logo {
   display: block;
   color: #898989;
   margin-bottom: 10px;
+  transition: all .3s ease;
+}
+
+.footer_right a:hover {
+  color: whitesmoke;
 }

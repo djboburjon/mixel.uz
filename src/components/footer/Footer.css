@@ -37,6 +37,7 @@ footer .logo {
   color: gray;
   cursor: pointer;
   border-radius: 50%;
+  transition: all .3s ease;
 }
 
 .social_media a:hover {

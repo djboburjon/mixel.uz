@@ -25,13 +25,13 @@ function Footer() {
           </p>
 
           <div className="social_media">
-            <a href="#">
+            <a href="https://t.me/dj_boburjon" target="_blank">
               <FaTelegramPlane />
             </a>
-            <a href="#">
+            <a href="https://www.instagram.com/dj_boburjon/" target="_blank">
               <FaInstagram />
             </a>
-            <a href="#">
+            <a href="https://www.facebook.com/boburjon.dadajonov.5" target="_blank">
               <FaFacebookF />
             </a>
             <a href="#">

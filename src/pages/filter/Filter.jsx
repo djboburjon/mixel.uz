@@ -41,9 +41,7 @@ function Filter({ search, setLoading }) {
 
   const filtered = () => {
     const newData = nowProducts.filter((item) => {
-      return brand.length
-        ? brand.includes(item.brand)
-        : item && country.length
+      return country.length
         ? country.includes(item.country?.toLowerCase())
         : item && item.price > value[0] && item.price < value[1];
     });

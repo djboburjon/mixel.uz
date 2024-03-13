@@ -37,13 +37,35 @@ function Filter({ search, setLoading }) {
   const [filter_wide, setFilter_wide] = useState(false);
 
   const [product, setProduct] = useState();
-  const [nowProducts, setNowProducts] = useState()
+  const [nowProducts, setNowProducts] = useState();
 
   const filtered = () => {
-    const newData = nowProducts.filter((item) => {
-      return country.length
-        ? country.includes(item.country?.toLowerCase())
-        : item && item.price > value[0] && item.price < value[1];
+    var filterBrand;
+    var filterCountry;
+    var filterPrice;
+
+    if (brand.length > 0) {
+      filterBrand = nowProducts.filter((item) => {
+        return brand.includes(item.brand)
+      })
+    } else {
+      filterBrand = nowProducts;
+    }
+
+    if (country.length > 0) {
+      filterCountry = nowProducts.filter((item) => {
+        return country.includes(item.country?.toLowerCase())
+      })
+    } else {
+      filterCountry = nowProducts;
+    }
+
+    filterPrice = nowProducts.filter((item) => {
+      return item.price > value[0] && item.price < value[1];
+    })
+
+    var newData = filterBrand.filter((item) => {
+      return filterCountry.includes(item) && filterPrice.includes(item)
     });
     setProduct(newData);
 
@@ -64,7 +86,7 @@ function Filter({ search, setLoading }) {
       .then((response) => response.json())
       .then((result) => {
         setProduct(result);
-        setNowProducts(result)
+        setNowProducts(result);
         setLoading(false);
       })
       .catch((error) => {
@@ -99,9 +121,10 @@ function Filter({ search, setLoading }) {
         "https://ecommerce0003.pythonanywhere.com/main/products/?subCategory_id=7"
       );
     } else if (type == "discount") {
-      getData("https://ecommerce0003.pythonanywhere.com/main/products/?discount=true");
-    }
-     else if (type == "all") {
+      getData(
+        "https://ecommerce0003.pythonanywhere.com/main/products/?discount=true"
+      );
+    } else if (type == "all") {
       getData("https://ecommerce0003.pythonanywhere.com/main/products");
     }
   }, [type]);
@@ -213,8 +236,8 @@ function Filter({ search, setLoading }) {
               >
                 <FormControlLabel
                   control={<Checkbox />}
-                  label="LG"
-                  value={"LG"}
+                  label="Apple"
+                  value={"Apple"}
                 />
                 <span>(30)</span> <br />
                 <FormControlLabel
@@ -231,20 +254,44 @@ function Filter({ search, setLoading }) {
                 <span>(30)</span> <br />
                 <FormControlLabel
                   control={<Checkbox />}
-                  label="Avalon"
-                  value={"Avalon"}
+                  label="Acer"
+                  value={"Acer"}
                 />
                 <span>(30)</span> <br />
                 <FormControlLabel
                   control={<Checkbox />}
-                  label="Xiaomi"
-                  value={"Xiaomi"}
+                  label="Intel"
+                  value={"Intel"}
                 />
                 <span>(7)</span> <br />
                 <FormControlLabel
                   control={<Checkbox />}
-                  label="Apple"
-                  value={"Apple"}
+                  label="Canon"
+                  value={"Canon"}
+                />
+                <span>(30)</span> <br />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="HyperX"
+                  value={"HyperX"}
+                />
+                <span>(30)</span> <br />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Lenovo"
+                  value={"Lenovo"}
+                />
+                <span>(30)</span> <br />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Tp-Link"
+                  value={"Tp-Link"}
+                />
+                <span>(30)</span> <br />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="AMD"
+                  value={"AMD"}
                 />
                 <span>(30)</span>
               </AccordionDetails>

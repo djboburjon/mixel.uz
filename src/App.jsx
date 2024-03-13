@@ -15,11 +15,12 @@ function App() {
   const [search, setSearch] = useState("")
 
   const [login, setLogin] = useState(false)
+  const [signUp, setSignUp] = useState(false)
 
   return (
     <>
       <BrowserRouter>
-        <Login login={login} setLogin={setLogin}/>
+        <Login login={login} setLogin={setLogin} signUp={signUp} setSignUp={setSignUp}/>
         <Navbar setSearch={setSearch} setLogin={setLogin} />
         {loading && <Loader />}
         <Routes>

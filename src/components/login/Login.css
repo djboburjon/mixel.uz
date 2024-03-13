@@ -34,6 +34,7 @@
 
 .login .form button {
 	margin-top: 20px;
+	margin-bottom: 20px;
 	border-radius: 5px;
   background: #ED3729;
   color: white;
@@ -55,4 +56,21 @@
 	color: white;
 	font-size: 24px;
 	cursor: pointer;
+}
+
+.signUp {
+	width: 80px;
+}
+
+.register_form {
+	width: 800px !important;
+}
+
+.register_form > div {
+	display: flex;
+	gap: 50px;
+}
+
+.register_form input {
+	width: 300px !important;
 }

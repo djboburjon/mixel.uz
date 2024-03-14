@@ -12,16 +12,54 @@ import Login from "./components/login/Login";
 
 function App() {
   const [loading, setLoading] = useState(false);
-  const [search, setSearch] = useState("")
+  const [search, setSearch] = useState("");
 
-  const [login, setLogin] = useState(false)
-  const [signUp, setSignUp] = useState(false)
+  const [login, setLogin] = useState(false);
+  const [signUp, setSignUp] = useState(false);
+
+  const [token, setToken] = useState(localStorage.getItem("token"));
+  const [user, setUser] = useState(null);
+
+  const getUser = () => {
+    const myHeaders = new Headers();
+    myHeaders.append(
+      "Authorization",
+      `Bearer ${token}`
+    );
+
+    const requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://ecommerce0003.pythonanywhere.com/user/retrieve/",
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => {
+        setUser(result)
+      })
+      .catch((error) => console.error(error));
+  };
+
+  useEffect(() => {
+    getUser()
+  }, [token])
 
   return (
     <>
       <BrowserRouter>
-        <Login login={login} setLogin={setLogin} signUp={signUp} setSignUp={setSignUp}/>
+        <Login
+          setToken={setToken}
+          login={login}
+          setLogin={setLogin}
+          signUp={signUp}
+          setSignUp={setSignUp}
+        />
         <Navbar setSearch={setSearch} setLogin={setLogin} />
+        {user && <><h1>{user.username}</h1></>}
         {loading && <Loader />}
         <Routes>
           <Route path="/" element={<Home />} />

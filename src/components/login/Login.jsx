@@ -1,8 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Login.css";
 import { FaTimes } from "react-icons/fa";
 
-function Login({ login, setLogin, signUp, setSignUp }) {
+function Login({setToken, login, setLogin, signUp, setSignUp }) {
+
+  const [userLogin, setUserLogin] = useState()
+  const [userPassword, setUserPassword] = useState()
+
+
+  const getToken = () => {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const raw = JSON.stringify({
+      username: userLogin,
+      password: userPassword,
+    });
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch("https://ecommerce0003.pythonanywhere.com/token/", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.access) {
+          setToken(result.access);
+          localStorage.setItem("token", result.access)
+          setLogin(false);
+          setUserLogin("")
+          setUserPassword("")
+          console.log("Foydalanuvchi kirdi.");
+        } else {
+          alert("There is no information")
+        }
+      })
+      .catch((error) => console.error(error));
+  };
+
   return (
     <>
       <div className={login ? "login active" : "login"}>
@@ -17,10 +55,16 @@ function Login({ login, setLogin, signUp, setSignUp }) {
         <div className="container">
           <div className="form" action="">
             <h3>Username</h3>
-            <input type="text" placeholder="Login" />
+            <input value={userLogin} onChange={(e) => {
+              setUserLogin(e.target.value)
+            }} type="text" placeholder="Login" />
             <h3>Password</h3>
-            <input type="password" placeholder="Enter your password" />
-            <button>Login</button>
+            <input value={userPassword} onChange={(e) => {
+              setUserPassword(e.target.value)
+            }} type="password" placeholder="Enter your password" />
+            <button onClick={()=>{
+              getToken()
+            }}>Login</button>
             <a
               onClick={() => {
                 setSignUp(true);
@@ -38,7 +82,7 @@ function Login({ login, setLogin, signUp, setSignUp }) {
           className="exit_btn"
           onClick={() => {
             setSignUp(false);
-            setLogin(false)
+            setLogin(false);
           }}
         >
           <FaTimes />

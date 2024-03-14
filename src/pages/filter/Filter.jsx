@@ -160,7 +160,7 @@ function Filter({ search, setLoading }) {
       </div>
       <div className="filter_section container">
         <div className="filter_left">
-          <h2>Смартфоны в Ташкенте</h2>
+          <h2>Продукты в Ташкенте</h2>
           <div className="filter_main">
             <Accordion>
               <AccordionSummary

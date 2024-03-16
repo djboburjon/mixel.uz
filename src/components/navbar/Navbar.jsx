@@ -4,14 +4,14 @@ import { IoLocationOutline } from "react-icons/io5";
 import { IoCallOutline } from "react-icons/io5";
 import { HiOutlineMicrophone } from "react-icons/hi2";
 import { CiSearch } from "react-icons/ci";
-import { FiUser } from "react-icons/fi";
+import { FiUser, FiUserCheck } from "react-icons/fi";
 import { FaBalanceScaleLeft } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { LuShoppingCart } from "react-icons/lu";
 import { MdMenu } from "react-icons/md";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 
-function Navbar({ setSearch, setLogin }) {
+function Navbar({ setUserInfo, user, setSearch, setLogin }) {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
@@ -24,6 +24,7 @@ function Navbar({ setSearch, setLogin }) {
   useEffect(() => {
     setSelectValue(pathname);
   }, [pathname]);
+
   return (
     <nav>
       <div className="nav_top">
@@ -93,12 +94,34 @@ function Navbar({ setSearch, setLogin }) {
             </label>
           </form>
           <div className="get_info">
-            <div className="login_icon" onClick={()=>{
-                setLogin(true)
-              }}>
+            <div
+              className="login_icon"
+              onClick={() => {
+                setLogin(true);
+              }}
+            >
               <FiUser />
               <p>Войти</p>
             </div>
+            {/* {user ? (
+              <div className="login_icon"
+              onClick={() => {
+                setUserInfo(true)
+              }}>
+                <FiUserCheck />
+                <p>Профиль</p>
+              </div>
+            ) : (
+              <div
+                className="login_icon"
+                onClick={() => {
+                  setLogin(true);
+                }}
+              >
+                <FiUser />
+                <p>Войти</p>
+              </div>
+            )} */}
             <div className="comparisons">
               <div className="info_icon">
                 <FaBalanceScaleLeft />

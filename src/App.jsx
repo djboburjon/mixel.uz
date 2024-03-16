@@ -16,6 +16,7 @@ function App() {
 
   const [login, setLogin] = useState(false);
   const [signUp, setSignUp] = useState(false);
+  const [userInfo, setUserInfo] = useState(false)
 
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [user, setUser] = useState(null);
@@ -52,14 +53,16 @@ function App() {
     <>
       <BrowserRouter>
         <Login
+          user={user}
+          userInfo={userInfo}
+          setUserInfo={setUserInfo}
           setToken={setToken}
           login={login}
           setLogin={setLogin}
           signUp={signUp}
           setSignUp={setSignUp}
         />
-        <Navbar setSearch={setSearch} setLogin={setLogin} />
-        {user && <><h1>{user.username}</h1></>}
+        <Navbar setUserInfo={setUserInfo} user={user} setSearch={setSearch} setLogin={setLogin} />
         {loading && <Loader />}
         <Routes>
           <Route path="/" element={<Home />} />

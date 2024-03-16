@@ -61,6 +61,7 @@ function App() {
           setLogin={setLogin}
           signUp={signUp}
           setSignUp={setSignUp}
+          setLoading={setLoading}
         />
         <Navbar setUserInfo={setUserInfo} user={user} setSearch={setSearch} setLogin={setLogin} />
         {loading && <Loader />}

@@ -11,9 +11,19 @@ function Login({
   setLogin,
   signUp,
   setSignUp,
+  setLoading
 }) {
   const [userLogin, setUserLogin] = useState();
   const [userPassword, setUserPassword] = useState();
+
+  const [nameUser, setNameUser] = useState()
+  const [userKey, setUserKey] = useState()
+  const [email, setEmail] = useState()
+  const [first_name, setFirst_name] = useState()
+  const [last_name, setLast_name] = useState()
+  const [phone_number, setPhone_number] = useState()
+  const [city, setCity] = useState()
+  const [address, setAddress] = useState()
 
   const getToken = () => {
     const myHeaders = new Headers();
@@ -41,10 +51,43 @@ function Login({
           setUserLogin("");
           setUserPassword("");
           console.log("Foydalanuvchi kirdi.");
+          setLoading(false)
         } else {
-          alert("There is no information");
+          setLoading(false)
+          alert("Incorrect information or register now");
         }
       })
+      .catch((error) => console.error(error));
+  };
+
+  const getUserData = () => {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const raw = JSON.stringify({
+      username: nameUser,
+      password: userKey,
+      email: email,
+      first_name: first_name,
+      last_name: last_name,
+      phone_number: phone_number,
+      city: 2,
+      address: address,
+    });
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://ecommerce0003.pythonanywhere.com/user/register/",
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => console.log(result))
       .catch((error) => console.error(error));
   };
 
@@ -81,6 +124,7 @@ function Login({
             />
             <button
               onClick={() => {
+                setLoading(true)
                 getToken();
               }}
             >
@@ -110,30 +154,48 @@ function Login({
           <FaTimes />
         </div>
         <div className="container">
-          <div className="form register_form" action="">
+          <div className="form register_form">
             <div>
               <div className="form_left">
                 <h3>First Name</h3>
-                <input type="text" placeholder="Name" />
+                <input value={first_name} onChange={(e) => {
+                  setFirst_name(e.target.value)
+                }} type="text" placeholder="Name" />
                 <h3>Last Name</h3>
-                <input type="text" placeholder="Login" />
+                <input value={last_name} onChange={(e) => {
+                  setLast_name(e.target.value)
+                }} type="text" placeholder="Login" />
                 <h3>Username</h3>
-                <input type="text" placeholder="Login" />
+                <input value={nameUser} onChange={(e) => {
+                  setNameUser(e.target.value)
+                }} type="text" placeholder="Login" />
                 <h3>Number</h3>
-                <input type="password" placeholder="Mobile number" />
+                <input value={phone_number} onChange={(e) => {
+                  setPhone_number(e.target.value)
+                }} type="text" placeholder="Mobile number" />
               </div>
               <div className="form_right">
                 <h3>Email</h3>
-                <input type="password" placeholder="Enter your email" />
+                <input value={email} onChange={(e) => {
+                  setEmail(e.target.value)
+                }} type="text" placeholder="Enter your email" />
                 <h3>Password</h3>
-                <input type="password" placeholder="Enter your password" />
+                <input value={userKey} onChange={(e) => {
+                  setUserKey(e.target.value)
+                }} type="password" placeholder="Enter your password" />
                 <h3>City</h3>
-                <input type="password" placeholder="Living area" />
+                <input type="text" placeholder="Living area" />
                 <h3>Address</h3>
-                <input type="password" placeholder="Your address" />
+                <input value={address} onChange={(e) => {
+                  setAddress(e.target.value)
+                }} type="text" placeholder="Your address" />
               </div>
             </div>
-            <button>Sign Up</button>
+            <button onClick={() => {
+              getUserData()
+              setSignUp(false)
+              setLogin(true)
+            }}>Sign Up</button>
             <a
               onClick={() => {
                 setSignUp(false);

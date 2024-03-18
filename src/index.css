@@ -11,6 +11,8 @@
   max-width: 1360px;
   margin: 0 auto;
   font-family: "Montserrat", sans-serif;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 a {
@@ -19,4 +21,9 @@ a {
 
 li {
   list-style: none;
+}
+
+footer {
+  padding-left: 20px;
+  padding-right: 20px;
 }

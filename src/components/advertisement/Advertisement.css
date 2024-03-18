@@ -64,3 +64,25 @@
 .swiper-pagination {
   display: none;
 }
+
+@media screen and (max-width: 1024px) {
+  .adver_text h1 {
+    font-size: 30px;
+  }
+
+  .adver_text p {
+    font-size: 14px;
+  }
+
+  .adver_price h1 {
+    font-size: 30px;
+  }
+
+  .adver_price p {
+    font-size: 16px;
+  }
+
+  .adver_price button {
+    padding: 10px 40px;
+  }
+}

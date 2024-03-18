@@ -9,3 +9,13 @@
   height: 90px;
   overflow: hidden;
 }
+
+@media screen and (max-width: 1024px) {
+  .cards {
+    gap: 10px;
+  }
+
+  .card {
+    width: 220px;
+  }
+}

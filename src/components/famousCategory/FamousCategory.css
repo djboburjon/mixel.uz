@@ -17,3 +17,17 @@
   width: 100px;
   transform: scale(1.2);
 }
+
+@media screen and (max-width: 1024px) {
+  .famous a {
+    padding: 8px 16px;
+  }
+
+  .famous h2 {
+    font-size: 14px;
+  }
+
+  .famous img {
+    width: 70px;
+  }
+}

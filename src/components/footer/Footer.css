@@ -67,3 +67,9 @@ footer .logo {
 .footer_right a:hover {
   color: whitesmoke;
 }
+
+@media screen and (max-width: 1280px) {
+  .footer_right {
+    gap: 20px;
+  }
+}

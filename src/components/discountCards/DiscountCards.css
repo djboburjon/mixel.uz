@@ -45,3 +45,17 @@
   color: gray;
   font-size: 12px;
 }
+
+@media screen and (max-width: 1024px) {
+  .swiper-slide {
+    margin-right: 22px !important;
+  }
+
+  .card-info .sale {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+    top: 8px;
+    right: 8px;
+  }
+}

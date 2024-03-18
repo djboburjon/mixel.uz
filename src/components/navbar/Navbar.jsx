@@ -61,8 +61,7 @@ function Navbar({ setUserInfo, user, setSearch, setLogin }) {
               <img src="/imgs/logo.png" alt="Logotip" />
             </Link>
           </div>
-          <form className="search">
-            <label>
+          <form className="search">            
               <select value={selectValue} onChange={handleSelect}>
                 <option value={"/products/all"}>Все категории</option>
                 <option value={"/products/monoblock"}>Моноблоки</option>
@@ -83,15 +82,14 @@ function Navbar({ setUserInfo, user, setSearch, setLogin }) {
                 }}
                 className="search_inp"
                 type="text"
-                placeholder="Телефоны и бытовая"
+                placeholder="Введите..."
               />
               <span className="search_voice">
                 <HiOutlineMicrophone />
               </span>
               <button className="search_btn">
                 <CiSearch /> Поиск
-              </button>
-            </label>
+              </button>                          
           </form>
           <div className="get_info">
             <div

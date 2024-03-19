@@ -86,3 +86,34 @@
     padding: 10px 40px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .adver_text {
+    width: 200px;
+    text-align: left;
+  }
+
+  .adver_text h1 {
+    font-size: 20px;
+  }
+
+  .adver_text p {
+    font-size: 12px;
+  }
+
+  .advert_layer img {
+    width: 200px;
+  }
+
+  .adver_price h1 {
+    font-size: 20px;
+  }
+
+  .adver_price p {
+    font-size: 12px;
+  }
+
+  .adver_price button {
+    padding: 8px 30px;
+  }
+}

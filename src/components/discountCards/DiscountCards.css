@@ -59,3 +59,56 @@
     right: 8px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .cards .swiper-slide {
+    margin-right: 90px !important;
+  }
+
+  .card-info .sale {
+    width: 35px;
+    height: 35px;
+    font-size: 12px;
+    top: 2px;
+    right: 2px;
+    font-weight: 500;
+  }
+
+  .card-info p {
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+
+  .card-info .last-price {
+    font-size: 14px;
+  }
+
+  .card-info h2 {
+    margin-top: 10px;
+    line-height: 20px;
+    font-size: 18px;
+    height: 50px !important;
+    margin-bottom: 0px !important;
+  }
+
+  .dates {
+    margin-bottom: 0px;
+  }
+
+  .dates h3 {
+    font-size: 16px;
+  }
+
+  .dates p {
+    color: gray;
+    font-size: 10px;
+  }
+
+  .additions > div {
+    margin: 6px 0;
+  }
+
+  .additions svg {
+    font-size: 20px;
+  }
+}

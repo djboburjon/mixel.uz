@@ -31,3 +31,22 @@
     width: 70px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .famous {
+    margin-right: 25px !important;
+    overflow: hidden;
+  }
+
+  .famous a {
+    padding: 10px 6px;
+  }
+
+  .famous h2 {
+    font-size: 12px;
+  }
+
+  .famous img {
+    width: 40px;
+  }
+}

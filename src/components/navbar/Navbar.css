@@ -296,3 +296,100 @@
     font-size: 13px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .nav_top .nav_about {
+    gap: 6px;
+  }
+
+  .nav_about p {
+    font-size: 10px;
+  }
+
+  .nav_about a {
+    font-size: 10px;
+  }
+
+  .nav_call {
+    gap: 2px;
+  }
+
+  .nav_call svg {
+    font-size: 12px;
+  }
+  
+  .nav_call p {
+    font-size: 12px;
+  }
+
+  #language {
+    font-size: 12px;
+  }
+
+  #language option {
+    font-size: 12px;
+  }
+
+  .logo img {
+    width: 140px;
+  }
+
+  .search select {
+    width: 100px;
+    font-size: 10px;
+  }
+  
+  .search select option {
+    font-size: 10px;
+  }
+
+  .search_inp {
+    margin-left: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .search_inp {
+    font-size: 10px;
+  }
+
+  .search_voice {
+    margin-right: 8px;
+    font-size: 12px;
+  }
+
+  .search_btn {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  .get_info {
+    gap: 4px;
+  }
+
+  .get_info svg {
+    font-size: 16px;
+  }
+
+  .get_info p {
+    font-size: 10px;
+  }
+
+  .info_icon span {
+    top: -10px;
+    right: 0px;
+    width: 17px;
+    height: 17px;
+    font-size: 10px;
+  }
+
+  .nav_bottom-down .category {
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+
+  .links {
+    gap: 4px;
+    font-size: 10px;
+  }
+}

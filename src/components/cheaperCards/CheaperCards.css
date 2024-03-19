@@ -19,3 +19,12 @@
     width: 220px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .card h2 {
+    margin-top: 10px;
+    font-size: 18px;
+    height: 60px;
+    margin-bottom: 10px;
+  }
+}

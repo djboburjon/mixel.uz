@@ -73,3 +73,25 @@ footer .logo {
     gap: 20px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .footer_left .logo {
+    margin-bottom: 60px;
+  }
+  .footer_left .logo img {
+    width: 180px;
+  }
+
+  .footer_left p {
+    font-size: 14px;
+  }
+
+  .footer_right {
+    width: 70%;
+    gap: 10px;
+  }
+
+  .footer_right a {
+    font-size: 14px;
+  }
+}

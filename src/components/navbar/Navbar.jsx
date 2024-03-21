@@ -92,16 +92,7 @@ function Navbar({ setUserInfo, user, setSearch, setLogin }) {
               </button>                          
           </form>
           <div className="get_info">
-            <div
-              className="login_icon"
-              onClick={() => {
-                setLogin(true);
-              }}
-            >
-              <FiUser />
-              <p>Войти</p>
-            </div>
-            {/* {user ? (
+            {user?.username ? (
               <div className="login_icon"
               onClick={() => {
                 setUserInfo(true)
@@ -119,7 +110,7 @@ function Navbar({ setUserInfo, user, setSearch, setLogin }) {
                 <FiUser />
                 <p>Войти</p>
               </div>
-            )} */}
+            )}
             <div className="comparisons">
               <div className="info_icon">
                 <FaBalanceScaleLeft />

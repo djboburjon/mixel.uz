@@ -71,7 +71,7 @@ function Login({
       first_name: first_name,
       last_name: last_name,
       phone_number: phone_number,
-      city: 2,
+      city: Math.floor(city),
       address: address,
     });
 
@@ -90,6 +90,28 @@ function Login({
       .then((result) => console.log(result))
       .catch((error) => console.error(error));
   };
+
+  const [cities, setCities] = useState(null)
+
+  const getCity = () => {
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMDEwMTA2LCJpYXQiOjE3MTA0MTgxMDYsImp0aSI6IjZkNWM3MjlhNDdjYTRiNDY4NjllYWY3YmIyNjBmZDkwIiwidXNlcl9pZCI6M30.TtfQmTYRj4paGXEpKrlk0-_ycVRI0QeBP0nzAfKRNZ0");
+
+    const requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow"
+    };
+
+    fetch("https://ecommerce0003.pythonanywhere.com/order/cities/", requestOptions)
+      .then((response) => response.json())
+      .then((result) => setCities(result))
+      .catch((error) => console.error(error));
+  }
+
+  useEffect(() => {
+    getCity()
+  }, [])
 
   return (
     <>
@@ -125,6 +147,7 @@ function Login({
             <button
               onClick={() => {
                 setLoading(true)
+                setUserInfo(false)
                 getToken();
               }}
             >
@@ -184,7 +207,13 @@ function Login({
                   setUserKey(e.target.value)
                 }} type="password" placeholder="Enter your password" />
                 <h3>City</h3>
-                <input type="text" placeholder="Living area" />
+                <select onChange={(e) => {
+                  setCity(e.target.value)
+                }} name="" id="">
+                  {cities?.map((item) => {
+                    return <option value={item.id}>{item.name}</option>
+                  })}
+                </select>
                 <h3>Address</h3>
                 <input value={address} onChange={(e) => {
                   setAddress(e.target.value)
@@ -210,7 +239,7 @@ function Login({
         </div>
       </div>
 
-      {/* {user && (
+      {user?.username && (
         <div className={userInfo ? "login active" : "login"}>
           <div
             className="exit_btn"
@@ -284,10 +313,16 @@ function Login({
                   />
                 </div>
               </div>
+              <button onClick={() => {
+                setLoading(true)
+                localStorage.clear();
+                setToken(null)
+                setLoading(false)
+              }}>Log Out</button>
             </div>
           </div>
         </div>
-      )} */}
+      )}
     </>
   );
 }

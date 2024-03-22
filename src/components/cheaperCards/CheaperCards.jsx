@@ -5,10 +5,44 @@ import { FaHeart } from "react-icons/fa";
 import { PiShoppingCartSimpleFill } from "react-icons/pi";
 import { Link, NavLink, useParams } from "react-router-dom";
 
-function CheaperCards({ filter_wide, product }) {
+function CheaperCards({ likedProduct, filter_wide, product }) {
+  const onLiked = (id) => {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append(
+      "Authorization",
+      `Bearer ${localStorage.getItem("token")}`
+    );
+
+    const raw = JSON.stringify({
+      product: id,
+    });
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://ecommerce0003.pythonanywhere.com/action/liked/",
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => console.log(result))
+      .catch((error) => console.error(error));
+  };
+
   return (
     <div className={filter_wide ? "cards filter_wide" : "cards"}>
       {product?.map((item) => {
+        var isliked = false;
+        likedProduct.forEach((like) => {
+          if (like.product == item.id) {
+            isliked = true;
+          }
+        });
         return (
           <div className="card" key={item.id}>
             <div className="card-info">
@@ -36,7 +70,21 @@ function CheaperCards({ filter_wide, product }) {
                 <PiShoppingCartSimpleFill />
               </div>
               <div className="favorits">
-                <FaHeart />
+                {isliked ? (
+                  <span className="like">
+                    <FaHeart />
+                  </span>
+                ) : (
+                  <span
+                    onClick={() => {
+                      onLiked(item.id);
+                      isliked = true;
+                    }}
+                    className="dislike"
+                  >
+                    <FaHeart />
+                  </span>
+                )}
               </div>
               <div className="comparisons">
                 <FaScaleBalanced />

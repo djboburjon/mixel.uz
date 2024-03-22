@@ -95,7 +95,7 @@ function Login({
 
   const getCity = () => {
     const myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMDEwMTA2LCJpYXQiOjE3MTA0MTgxMDYsImp0aSI6IjZkNWM3MjlhNDdjYTRiNDY4NjllYWY3YmIyNjBmZDkwIiwidXNlcl9pZCI6M30.TtfQmTYRj4paGXEpKrlk0-_ycVRI0QeBP0nzAfKRNZ0");
+    myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzNzAyMTM1LCJpYXQiOjE3MTExMTAxMzUsImp0aSI6ImU3MzIyNGI2M2JmNDQ1MjI5ZDQ1MGM0NTY5ZTkwNGEzIiwidXNlcl9pZCI6M30.OK1-fXYQg8C5sUJTqTG4NYoEm_CjhDhJZ79qyvl5da4");
 
     const requestOptions = {
       method: "GET",

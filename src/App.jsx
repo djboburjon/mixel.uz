@@ -21,6 +21,8 @@ function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [user, setUser] = useState(null);
 
+  const [likedProduct, setLikedProduct] = useState(null);
+
   const getUser = () => {
     const myHeaders = new Headers();
     myHeaders.append(
@@ -45,8 +47,25 @@ function App() {
       .catch((error) => console.error(error));
   };
 
+  const getLiked = () => {
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${token}`);
+
+    const requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow"
+    };
+
+    fetch("https://ecommerce0003.pythonanywhere.com/action/liked/", requestOptions)
+      .then((response) => response.json())
+      .then((result) => setLikedProduct(result))
+      .catch((error) => console.error(error));
+  }
+
   useEffect(() => {
-    getUser()
+    getUser();
+    getLiked();
   }, [token])
 
   return (
@@ -69,7 +88,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route
             path="/products/:type"
-            element={<Filter search={search} setLoading={setLoading} />}
+            element={<Filter likedProduct={likedProduct} search={search} setLoading={setLoading} />}
           />
           <Route
             path="/filter/:id"

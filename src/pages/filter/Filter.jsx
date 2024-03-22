@@ -21,7 +21,7 @@ function valuetext(value) {
   return `${value}°C`;
 }
 
-function Filter({ search, setLoading }) {
+function Filter({ likedProduct, search, setLoading }) {
   const [value, setValue] = useState([300, 10000000]);
   const [brand, setBrand] = useState([]);
   const [battery, setBattery] = useState([]);
@@ -475,7 +475,7 @@ function Filter({ search, setLoading }) {
               </span>
             </p>
           </div>
-          <CheaperCards filter_wide={filter_wide} product={product} />
+          <CheaperCards likedProduct={likedProduct} filter_wide={filter_wide} product={product} />
           <div className="views">
             <button className="showMore">Показать еще</button>
             <div className="showPages">

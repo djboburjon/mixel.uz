@@ -10,6 +10,10 @@
   overflow: hidden;
 }
 
+.favorits .like {
+  color: red;
+}
+
 @media screen and (max-width: 1024px) {
   .cards {
     gap: 10px;
